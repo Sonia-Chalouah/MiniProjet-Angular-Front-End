@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1490093158370-1a6be674437b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBkZXNrdG9wfGVufDB8fDB8fHww');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+    </style>
+</head>
+
+
+<body>
+  
+  <br>
+
+
+<br>
+
+<br>
+
+<form (ngSubmit)="saveEtudiant()" #etudiantForm="ngForm">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="etudiant.nomEt" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="prenom">Prénom:</label>
+      <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="etudiant.prenomEt" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="cin">CIN:</label>
+      <input type="text" class="form-control" id="cin" name="cin" [(ngModel)]="etudiant.cin" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="ecole">École:</label>
+      <input type="text" class="form-control" id="ecole" name="ecole" [(ngModel)]="etudiant.ecole" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="etudiant.dateNaissance" required>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="!etudiantForm.valid" routerLink="this.router.navigate(['admin/etudiant']);" >Ajouter</button>
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<br>
+<br>
+<br> 
+
+  <h1>        -------- detail user -------- </h1>
+  <button class="col-2 btn btn-success" (click)="printSimplePdf()"> - -  Download pdf  data </button>
+
+<div class="mt-5">
+    <div class="container-fluid py-4">
+  <form (ngSubmit)="ModifierFoyer()">
+  <div class="form-group">
+    <label for="updatenomEt">nom etudiant </label>
+    <input type="text" class="form-control" id="updatenomEt" name="updatenomEt" value="nomEt"  [(ngModel)]="etudiant.nomEt" readonly>
+  </div>
+  <div class="form-group">
+    <label for="updateprenomEt">prenom etudiant </label>
+    <input type="text" class="form-control" id="updateprenomEt" name="updateprenomEt" value="prenomEt" [(ngModel)]="etudiant.prenomEt" readonly>
+  </div>
+  <div class="form-group">
+    <label for="updateEtat">cin etudiant </label>
+    <input type="text" class="form-control" id="updatecin" name="updatecin" value="cin" [(ngModel)]="etudiant.cin" readonly>
+  </div>
+  
+  <div class="form-group">
+    <label for="updateEtat"> ecole </label>
+    <input type="text" class="form-control" id="updateecole" name="updateecole" value="ecole" [(ngModel)]="etudiant.ecole" readonly>
+  </div>
+  
+  
+
+  
+  <div class="row">
+    <div class="col-md-4">
+    
+    </div>
+  </div>
+  </form>
+  </div>
+  </div>
+  
+  
