@@ -75,7 +75,7 @@ constructor( private ServiceEtudiant:etudiantService ) { }
     );
 
     // En-tête du tableau
-    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date'];
+    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','Email'];
 
     // Données des étudiants
     const data = this.etudiant.map(etudiant => [
@@ -83,7 +83,8 @@ constructor( private ServiceEtudiant:etudiantService ) { }
       etudiant.prenomEt,
       etudiant.cin,
       etudiant.ecole,
-      etudiant.dateNaissance
+      etudiant.dateNaissance,
+      etudiant.email
     ]);
 
     (doc as any).autoTable({

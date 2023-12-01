@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { MaterialModule } from 'src/material.module';
 import { MatCardModule } from '@angular/material/card';
 import { ToastrModule } from 'ngx-toastr';
+
 
 
 
@@ -20,8 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
     
     AppComponent,
    
-    
-
+  
 
   ],
   imports: [
@@ -32,7 +31,6 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule, 
     PdfViewerModule,
-    MaterialModule,
     ReactiveFormsModule,
     MatCardModule,
     ToastrModule 

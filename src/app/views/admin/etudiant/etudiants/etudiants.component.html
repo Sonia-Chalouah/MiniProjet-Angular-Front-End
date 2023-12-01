@@ -3,10 +3,7 @@
 <br>
 <br> 
 <button class="col-2 btn btn-success" (click)="printSimplePdf()">Download pdf  data </button>  ...
-<a routerLink="Ajouter" class="col-2 btn btn-success"
->Ajouter etudiant
-
-</a>
+<a routerLink="Ajouter" class="col-2 btn btn-success">Ajouter etudiant </a>
 <br>
 <br>
 <br>
@@ -39,9 +36,10 @@
                     <tr>
                         <th>nomEt</th>
                         <th>prenomEt</th>
-                      <th>cin</th>
-                      <th>ecole</th>
-                      <th>Date</th>
+                       <th>cin</th>
+                       <th>ecole</th>
+                       <th>Date</th>
+                       <th>Email</th>
                       
                     </tr>
                   </thead>
@@ -53,6 +51,7 @@
                       <td class="tcell" >{{ etudiants.cin }}</td>
                       <td class="tcell" >{{ etudiants.ecole }}</td>
                       <td class="tcell" >{{ etudiants.dateNaissance }}</td>
+                      <td class="tcell" >{{ etudiants.email }}</td>
 
 
                      
@@ -68,11 +67,11 @@
                         </td>
                       </ng-template>
                       <td class="col">
-                        <a class="btn text-success"  [routerLink]="['detail', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance ]">
+                        <a class="btn text-success"  [routerLink]="['detail', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance ,etudiants.email]">
                           <span class="material-icons"> visibility </span></a>
                         
                         
-                        <a class="btn text-warning" [routerLink]="['Update', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance ]">
+                        <a class="btn text-warning" [routerLink]="['Update', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance, etudiants.email ]">
                           <span class="material-icons"> edit </span></a
                         >
                         

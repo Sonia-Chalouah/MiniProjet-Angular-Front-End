@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { UserRoutingModule } from './views/front/user/user-routing.module';
+
 
 const routes: Routes = [
   {path:"", component:FrontLayoutComponent, children:[
@@ -16,9 +16,11 @@ const routes: Routes = [
        {path:"universite", loadChildren:()=>import ("./views/admin/universite/universite.module").then(m=>m.UniversiteModule)}, 
        {path:"reservation", loadChildren:()=>import ("./views/admin/reservation/reservation.module").then(m=>m.ReservationModule)},
        {path:"foyer",loadChildren:()=>import ("./views/admin/foyer/foyer.module").then(m=>m.FoyerModule)},
-       {path:"etudiant",loadChildren:()=>import ("./views/admin/etudiant/etudiant.module").then(m=>m.EtudiantModule)}
+       {path:"etudiant",loadChildren:()=>import ("./views/admin/etudiant/etudiant.module").then(m=>m.EtudiantModule)},
+       {path:"bloc",loadChildren:()=>import ("./views/admin/bloc/bloc.module").then(m=>m.BlocModule)}
        
        
+
   ]},
   
  
