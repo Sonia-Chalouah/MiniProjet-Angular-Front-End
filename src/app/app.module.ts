@@ -10,6 +10,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatCardModule } from '@angular/material/card';
 import { ToastrModule } from 'ngx-toastr';
 
+import { BodyComponent } from 'src/frontoffice/body/body.component';
+import { NavbarComponent } from 'src/frontoffice/navbar/navbar.component';
+import { FooterComponent } from 'src/frontoffice/footer/footer.component';
+import { ContactComponent } from 'src/frontoffice/contact/contact.component';
+
 
 
 
@@ -20,6 +25,13 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
 
     AppComponent,
+
+
+BodyComponent,
+NavbarComponent,
+FooterComponent,
+ContactComponent
+
 
 
 
@@ -33,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule,
     PdfViewerModule,
+
     ReactiveFormsModule,
     MatCardModule,
     ToastrModule

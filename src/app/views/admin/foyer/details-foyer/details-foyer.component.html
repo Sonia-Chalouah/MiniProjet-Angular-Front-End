@@ -1,0 +1,27 @@
+<div >
+  <div class="card">
+    <div class="card-header">
+      <h2>Details of Foyer {{ foyer.idFoyer }}</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> {{ foyer.nomFoyer }}</p>
+      <p><strong>Capacité:</strong> {{ foyer.capaciteFoyer }}</p>
+      <p><strong>Université:</strong> {{ foyer.universiteName }}</p>
+      <!-- Add more details as needed -->
+    </div>
+    <div class="card-footer">
+      <h3>List of Blocs:</h3>
+      <ul>
+        <li *ngFor="let bloc of foyer.bloc">
+          <p><strong>Nom Bloc:</strong> {{ bloc.nomBloc }}</p>
+          <p><strong>Capacité Bloc:</strong> {{ bloc.capaciteBloc }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!foyer">
+  <p>Loading...</p>
+</div>
+

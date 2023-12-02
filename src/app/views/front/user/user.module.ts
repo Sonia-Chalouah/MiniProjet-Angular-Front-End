@@ -27,7 +27,6 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
-
     PdfViewerModule,
     ToastrModule,
     ToastrModule.forRoot(),

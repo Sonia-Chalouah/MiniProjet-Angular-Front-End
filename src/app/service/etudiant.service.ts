@@ -21,12 +21,13 @@ export class etudiantService {
 
   constructor(private _http: HttpClient) { }
 
- 
+
 
   getAllEtudiants(): Observable<Etudiant[]> {
     return this._http.get<Etudiant[]>(this.apiServer + 'getAllEtudiants', this.httpOptions);
   }
 
+0
   deleteEtudiants(id:number){
     return this._http.delete<Etudiant[]>(this.apiServer +'deleteEtudiant/'+id, this.httpOptions);
     }
@@ -40,7 +41,7 @@ export class etudiantService {
 
 
 
-    
+
 getEmployeeById(idEtudiant: number): Observable<Etudiant>{
   return this._http.get<Etudiant>(`${this.baseURL}/${idEtudiant}`);
 }

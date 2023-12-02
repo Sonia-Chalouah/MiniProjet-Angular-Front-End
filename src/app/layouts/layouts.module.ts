@@ -6,15 +6,17 @@ import { RouterModule } from '@angular/router';
 
 
 
+
 @NgModule({
   declarations: [
     AdminLayoutComponent,
     FrontLayoutComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule
-  
+
   ]
 })
 export class LayoutsModule { }

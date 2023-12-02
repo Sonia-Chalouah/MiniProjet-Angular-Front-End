@@ -1,18 +1,17 @@
-
 <br>
 <br>
-<br> 
+<br>
 <button class="col-2 btn btn-success" (click)="printSimplePdf()">Download pdf  data </button>  ...
-<a routerLink="Ajouter" class="col-2 btn btn-success">Ajouter etudiant </a>
+<a routerLink="Ajouter" class="col-2 btn btn-success" Ajouter etudiant>
 <br>
 <br>
 <br>
 <h1>Recherche multicritère</h1>
-  <div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" Rechercher etudiant par nom prenom ecole cin ">
+<div class="search-hero">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" Rechercher etudiant par nom prenom ecole cin ">
 
 
- 
+
   <div class="mt-5">
     <div class="container-fluid py-4">
       <div class="row">
@@ -22,9 +21,9 @@
               <div class="row">
                 <h3 class="col-9">Liste des etudiants</h3>
                 <br>
-             
+
                 <br>
-               
+
               </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -33,62 +32,60 @@
                   class="table table-vcenter table-mobile-md card-table"
                 >
                   <thead>
-                    <tr>
-                        <th>nomEt</th>
-                        <th>prenomEt</th>
-                       <th>cin</th>
-                       <th>ecole</th>
-                       <th>Date</th>
-                       <th>Email</th>
-                      
-                    </tr>
+                  <tr>
+                    <th>nomEt</th>
+                    <th>prenomEt</th>
+                    <th>cin</th>
+                    <th>ecole</th>
+                    <th>Date</th>
+
+                  </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let etudiants of etudiant | filter:searchText  | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index ">
-                      
-                      <td class="tcell" >{{ etudiants.nomEt }}</td>
-                      <td class="tcell" >{{ etudiants.prenomEt }}</td>
-                      <td class="tcell" >{{ etudiants.cin }}</td>
-                      <td class="tcell" >{{ etudiants.ecole }}</td>
-                      <td class="tcell" >{{ etudiants.dateNaissance }}</td>
-                      <td class="tcell" >{{ etudiants.email }}</td>
+                  <tr *ngFor="let etudiants of etudiant | filter:searchText  | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index ">
+
+                    <td class="tcell" >{{ etudiants.nomEt }}</td>
+                    <td class="tcell" >{{ etudiants.prenomEt }}</td>
+                    <td class="tcell" >{{ etudiants.cin }}</td>
+                    <td class="tcell" >{{ etudiants.ecole }}</td>
+                    <td class="tcell" >{{ etudiants.dateNaissance }}</td>
 
 
-                     
 
-                      <ng-template #nullDisplay>
-                        <td>
-                          <a
-                            class="btn btn-warning btn-sm"
-                            style="background-color: rgb(231, 164, 102)"
-                          >
-                            Non affecté
-                          </a>
-                        </td>
-                      </ng-template>
-                      <td class="col">
-                        <a class="btn text-success"  [routerLink]="['detail', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance ,etudiants.email]">
-                          <span class="material-icons"> visibility </span></a>
-                        
-                        
-                        <a class="btn text-warning" [routerLink]="['Update', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance, etudiants.email ]">
-                          <span class="material-icons"> edit </span></a
-                        >
-                        
-                        
-                        
+
+                    <ng-template #nullDisplay>
+                      <td>
                         <a
-                          class="btn text-danger"
-                          (click)="deleteEtudiant(etudiants.idEtudiant)"
+                          class="btn btn-warning btn-sm"
+                          style="background-color: rgb(231, 164, 102)"
                         >
-                          <span class="material-icons"> delete </span></a
-                        >
-
-
-                       
-                        
+                          Non affecté
+                        </a>
                       </td>
-                    </tr>
+                    </ng-template>
+                    <td class="col">
+                      <a class="btn text-success"  [routerLink]="['detail', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance ]">
+                        <span class="material-icons"> visibility </span></a>
+
+
+                      <a class="btn text-warning" [routerLink]="['Update', etudiants.idEtudiant,etudiants.nomEt , etudiants.prenomEt , etudiants.cin , etudiants.ecole , etudiants.dateNaissance ]">
+                        <span class="material-icons"> edit </span></a
+                      >
+
+
+
+                      <a
+                        class="btn text-danger"
+                        (click)="deleteEtudiant(etudiants.idEtudiant)"
+                      >
+                        <span class="material-icons"> delete </span></a
+                      >
+
+
+
+
+                    </td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -98,7 +95,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- code pour afficher modal de button afficher -->
   <div class="modal" tabindex="-1" role="dialog" id="blocModal">
     <div class="modal-dialog" role="document">
@@ -128,22 +125,17 @@
           </button>
 
 
-          
-        
+
+
         </div>
       </div>
-      
+
     </div>
-    
+
   </div>
   <div>
     <pagination-controls
-    previousLabel="Prev"
-    nextLabel="Next"
-    (pageChange)="onTableDataChange($event)"></pagination-controls>
-    </div>
-    
-  
-
-  
-
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"></pagination-controls>
+  </div>
