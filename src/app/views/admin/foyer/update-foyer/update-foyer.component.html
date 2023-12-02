@@ -1,0 +1,28 @@
+<div>
+  <div class="card">
+    <div class="card-body">
+      <h2>Update Foyer</h2>
+      <form class="my-4" (submit)="updateFoyer()">
+        <div class="form-group">
+          <label for="nameFoyer">Name:</label>
+          <input type="text" id="nameFoyer" name="nameFoyer" [(ngModel)]="updatedFoyer.nomFoyer" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="capacite">Capacity:</label>
+          <input type="number" id="capacite" name="capacite" [(ngModel)]="updatedFoyer.capaciteFoyer" required class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="universite">University:</label>
+          <select id="universite" name="universite" [(ngModel)]="selectedUniversity" required class="form-control">
+            <option *ngFor="let universite of universiteList" [ngValue]="universite">{{ universite.nomUniversite }}</option>
+          </select>
+        </div>
+
+        <!-- ... more input fields and form controls for other foyer properties -->
+
+        <button type="submit" class="btn btn-primary">Update Foyer</button>
+      </form>
+    </div>
+  </div>
+</div>

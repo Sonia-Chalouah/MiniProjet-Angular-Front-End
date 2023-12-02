@@ -1,67 +1,63 @@
 <div class="mt-5">
   <div class="container-fluid py-4">
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="foyerNameSearch" placeholder="Enter Foyer Name" [(ngModel)]="foyerNameSearch" name="foyerNameSearch" (input)="searchFoyersByFoyerName()">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <input type="text" class="form-control" id="universityNameSearch" placeholder="Enter University Name" [(ngModel)]="universityNameSearch" name="universityNameSearch" (input)="searchFoyersByUniversite()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
             <div class="row">
-              <h3 class="col-9">Liste des foyes</h3>
-              <a routerLink="AjouterFoyer" class="col-2 btn btn-success"
-                >Ajouter foyer
-              </a>
+              <h3 class="col-9">Liste des foyers</h3>
+              <a routerLink="AjouterFoyer" class="col-1 btn btn-success">Ajouter </a>
+              <a routerLink="StatisticFoyer" class="col-1 btn btn-info">statistique </a>
             </div>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
-              <table
-                class="table table-vcenter table-mobile-md card-table"
-                border="1"
-              >
+              <table class="table table-vcenter table-mobile-md card-table" border="1">
                 <thead>
                   <tr>
-                    <th>Nom de foyer</th>
-                    <th>Capacite de foyer</th>
-                    <th>Nom d'universite</th>
-                    <th>Action</th>
+                    <th class="col-1">ID</th>
+                    <th class="col-3">Nom de foyer</th>
+                    <th class="col-2">Capacite de foyer</th>
+                    <th class="col-3">Nom d'universite</th>
+                    <th class="col-3">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let foyers of foyer; let i = index">
-                    <td>{{ foyers.nomFoyer }}</td>
-                    <td>{{ foyers.capaciteFoyer }}</td>
-                    <td *ngIf="foyers.universite != null; else nullDisplay">
-                      <a class="badge bg-info">
-                        {{ foyers.universite.nomUniversite }}</a
-                      >
-                    </td>
+                  <tr *ngFor="let foyer of foyers">
+                    <td class="col-1">{{ foyer.idFoyer }}</td>
+                    <td class="col-3">{{ foyer.nomFoyer }}</td>
+                    <td class="col-2">{{ foyer.capaciteFoyer }}</td>
+                    <td class="col-3">{{ foyer.universiteName }}</td>
                     <ng-template #nullDisplay>
-                      <td>
-                        <a
-                          class="btn btn-warning btn-sm"
-                          style="background-color: rgb(231, 164, 102)"
-                        >
-                          Non affecté
-                        </a>
+                      <td class="col-3">
+                        <a class="btn btn-warning btn-sm" style="background-color: rgb(231, 164, 102)">Non affecté</a>
                       </td>
                     </ng-template>
-                    <td class="col">
-                      <a class="btn text-success">
-                        <span class="material-icons"> visibility </span></a
-                      ><a class="btn text-warning">
-                        <span class="material-icons"> edit </span></a
-                      ><a
-                        class="btn text-danger"
-                        (click)="deleteFoyer(foyers.idFoyer)"
-                      >
-                        <span class="material-icons"> delete </span></a
-                      >
-                      <a
-                        class="btn "
-                        (click)="showlistebloc(foyers)"
-                        data-bs-toggle="modal"
-                        data-bs-target="#blocModal"
-                      >
-                        <span class="material-icons"> list </span>
+                    <td class="col-3">
+                      <a class="btn text-success" (click)="detailsFoyer(foyer.idFoyer)">
+                        <span class="material-icons">visibility</span>
+                      </a>
+                      <a class="btn text-warning" (click)="openUpdateModal(foyer)">
+                        <span class="material-icons">edit</span>
+                      </a>
+                      <a class="btn text-danger" (click)="deleteFoyer(foyer.idFoyer)">
+                        <span class="material-icons">delete</span>
                       </a>
                     </td>
                   </tr>
@@ -74,38 +70,6 @@
     </div>
   </div>
 </div>
-
-<!-- code pour afficher modal de button afficher -->
-<div class="modal" tabindex="-1" role="dialog" id="blocModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Rechercher un bloc.."
-          [(ngModel)]="searchText"
-          #ngModel="ngModel"
-        />
-        <p>You typed: {{ searchText }}</p>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <p>Liste de bloc :</p>
-        <ul>
-          <li *ngFor="let b of bloc">{{ b.nomBloc }}</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Fermer
-        </button>
-      </div>
-    </div>
-  </div>
+<div>
+  <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
 </div>
