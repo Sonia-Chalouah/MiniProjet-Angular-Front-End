@@ -11,8 +11,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DetailComponent } from './detail/detail.component'; 
-import { AddBlocComponent } from '../bloc/add-bloc/add-bloc.component';
+import { DetailComponent } from './detail/detail.component';
+
 
 
 
@@ -30,7 +30,7 @@ import { AddBlocComponent } from '../bloc/add-bloc/add-bloc.component';
     FormsModule,
     Ng2SearchPipeModule,
     PdfViewerModule,
-    MatPaginatorModule , 
+    MatPaginatorModule ,
     NgxPaginationModule
   ]
 })

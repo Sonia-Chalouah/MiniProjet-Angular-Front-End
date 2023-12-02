@@ -15,12 +15,14 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 
+
 @NgModule({
   declarations: [
-    
+
     AppComponent,
-   
-  
+
+
+
 
   ],
   imports: [
@@ -29,12 +31,12 @@ import { ToastrModule } from 'ngx-toastr';
     LayoutsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
     PdfViewerModule,
     ReactiveFormsModule,
     MatCardModule,
-    ToastrModule 
-   
+    ToastrModule
+
 
 
   ],
