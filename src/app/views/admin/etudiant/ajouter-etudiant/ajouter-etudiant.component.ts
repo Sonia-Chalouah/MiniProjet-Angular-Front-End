@@ -18,12 +18,11 @@ export class AjouterEtudiantComponent implements OnInit {
     prenomEt:'',
     cin:0,
     ecole:'',
-    dateNaissance:null
+    dateNaissance:null,
+    email:'',
 
 
   }
-
-
 
   constructor(private route: ActivatedRoute, private etudiantService: etudiantService, private router: Router) {}
 

@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { MaterialModule } from 'src/material.module';
 import { MatCardModule } from '@angular/material/card';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -20,15 +19,19 @@ import { ContactComponent } from 'src/frontoffice/contact/contact.component';
 
 
 
+
+
 @NgModule({
   declarations: [
 
     AppComponent,
 
+
 BodyComponent,
 NavbarComponent,
 FooterComponent,
 ContactComponent
+
 
 
 

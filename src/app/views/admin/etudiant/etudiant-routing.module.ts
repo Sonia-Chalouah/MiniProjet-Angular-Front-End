@@ -5,10 +5,11 @@ import { AjouterEtudiantComponent } from './ajouter-etudiant/ajouter-etudiant.co
 import { UpdateEtudiantComponent } from './update-etudiant/update-etudiant.component';
 import { DetailComponent } from './detail/detail.component';
 
-const routes: Routes = [{path: "", component: EtudiantComponent},
+const routes: Routes = [
+{path: "", component: EtudiantComponent},
 {path: "Ajouter", component: AjouterEtudiantComponent} , 
-{path: "Update/:idEtudiant/:nomEt/:prenomEt/:cin/:ecole/:dateNaissance ",component: UpdateEtudiantComponent} , 
-{path: "detail/:idEtudiant/:nomEt/:prenomEt/:cin/:ecole/:dateNaissance", component: DetailComponent}];
+{path: "Update/:idEtudiant/:nomEt/:prenomEt/:cin/:ecole/:dateNaissance/:email ",component: UpdateEtudiantComponent} , 
+{path: "detail/:idEtudiant/:nomEt/:prenomEt/:cin/:ecole/:dateNaissance/:email", component: DetailComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

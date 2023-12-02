@@ -20,7 +20,8 @@ export class DetailComponent  implements OnInit {
     prenomEt:'',
     cin:0,
     ecole:'',
-    dateNaissance:null
+    dateNaissance:null,
+    email:''
    };
 
    POSTS: any;
@@ -40,22 +41,13 @@ tableSizes: any = [5, 10, 15, 20];
       this.etudiant.cin = params['cin'];
       this.etudiant.ecole = params['ecole'];
       this.etudiant.dateNaissance = params['dateNaissance'];
+      this.etudiant.email = params['Email'];
 
 
 
     });
      
 }
-
-
-
-
-
-
-    
-     
-    
-
 
   ModifierFoyer() {
     console.log(this.etudiant)
@@ -82,7 +74,7 @@ tableSizes: any = [5, 10, 15, 20];
       });
     
       // En-tête du tableau
-      const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date'];
+      const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','Email'];
     
       // Données des étudiants
       const data = [[
@@ -90,7 +82,9 @@ tableSizes: any = [5, 10, 15, 20];
         this.etudiant.prenomEt,
         this.etudiant.cin,
         this.etudiant.ecole,
-        this.etudiant.dateNaissance
+        this.etudiant.dateNaissance,
+        this.etudiant.email
+        
       ]];
     
       (doc as any).autoTable({

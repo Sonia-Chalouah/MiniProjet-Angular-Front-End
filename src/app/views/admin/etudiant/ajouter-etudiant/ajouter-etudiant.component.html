@@ -7,7 +7,7 @@
 
   <style>
     body {
-      background-image: url('https://images.unsplash.com/photo-1490093158370-1a6be674437b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBkZXNrdG9wfGVufDB8fDB8fHww');
+      
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: 100% 100%;
@@ -49,6 +49,11 @@
     <div class="form-group">
       <label for="date">Date:</label>
       <input type="date" class="form-control" id="date" name="date" [(ngModel)]="etudiant.dateNaissance" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">email:</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="etudiant.email" required>
     </div>
   
     <button type="submit" class="btn btn-primary" [disabled]="!etudiantForm.valid" routerLink="this.router.navigate(['admin/etudiant']);" >Ajouter</button>

@@ -1,7 +1,5 @@
 import { Component,OnInit ,ViewChild , AfterViewInit  } from '@angular/core';
 import { etudiantService } from '../../../../service/etudiant.service';
-import { Inject, Input} from '@angular/core';
-import { Etudiant } from './../../../../Model/Etudiant';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -10,6 +8,7 @@ import 'jspdf-autotable';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {Etudiant} from "../../../../Model/Etudiant";
 
 
 
@@ -75,7 +74,7 @@ constructor( private ServiceEtudiant:etudiantService ) { }
     );
 
     // En-tête du tableau
-    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date'];
+    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','Email'];
 
     // Données des étudiants
     const data = this.etudiant.map(etudiant => [
@@ -83,7 +82,8 @@ constructor( private ServiceEtudiant:etudiantService ) { }
       etudiant.prenomEt,
       etudiant.cin,
       etudiant.ecole,
-      etudiant.dateNaissance
+      etudiant.dateNaissance,
+      etudiant.email
     ]);
 
     (doc as any).autoTable({
