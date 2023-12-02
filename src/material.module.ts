@@ -10,6 +10,11 @@ import {MatDialogModule} from "@angular/material/dialog"
 import {MatSelectModule} from "@angular/material/select"
 import {MatCheckboxModule} from "@angular/material/checkbox"
 import { ToastrModule } from 'ngx-toastr';
+import { BodyComponent } from './frontoffice/body/body.component';
+import { FooterComponent } from './frontoffice/footer/footer.component';
+import { NavbarComponent } from './frontoffice/navbar/navbar.component';
+import { AboutUsComponent } from './frontoffice/about-us/about-us.component';
+import { ContactComponent } from './frontoffice/contact/contact.component';
 
 @NgModule({
     exports: [
@@ -22,7 +27,14 @@ import { ToastrModule } from 'ngx-toastr';
         MatDialogModule,
         MatSelectModule,
         MatCheckboxModule,
-        ToastrModule 
-    ]
+        ToastrModule
+    ],
+    declarations: [
+
+
+
+
+
+  ]
 })
 export class MaterialModule { }

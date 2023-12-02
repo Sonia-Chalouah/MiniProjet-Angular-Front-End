@@ -28,11 +28,11 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule,
+  
     PdfViewerModule,
     ToastrModule,
     ToastrModule.forRoot(),
-   
+
   ]
 })
 export class UserModule { }
