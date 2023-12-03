@@ -10,7 +10,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MaterialModule } from 'src/material.module';
 import { MatCardModule } from '@angular/material/card';
 import { ToastrModule } from 'ngx-toastr';
-
+import { AddChambreComponent } from './views/admin/Chambre/add-chambre/add-chambre.component';
+import { GetChambreComponent } from './views/admin/Chambre/get-chambre/get-chambre.component';
+import { DetailsChambreComponent } from './views/admin/Chambre/details-chambre/details-chambre.component';
+import { UpdateChambreComponent } from './views/admin/Chambre/update-chambre/update-chambre.component';
+import { ChambreModule } from './views/admin/Chambre/chambre.module';
 
 
 
@@ -19,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     
     AppComponent,
+         
    
     
 
@@ -35,7 +40,8 @@ import { ToastrModule } from 'ngx-toastr';
     MaterialModule,
     ReactiveFormsModule,
     MatCardModule,
-    ToastrModule 
+    ToastrModule ,
+    
    
 
 

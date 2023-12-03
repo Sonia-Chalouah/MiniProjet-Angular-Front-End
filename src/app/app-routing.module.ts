@@ -4,6 +4,7 @@ import { FrontLayoutComponent } from './layouts/front-layout/front-layout.compon
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { UserRoutingModule } from './views/front/user/user-routing.module';
 
+
 const routes: Routes = [
   {path:"", component:FrontLayoutComponent, children:[
        {path:"", loadChildren:()=>import("./views/front/home/home.module").then(m=>m.HomeModule)},
@@ -16,7 +17,10 @@ const routes: Routes = [
        {path:"universite", loadChildren:()=>import ("./views/admin/universite/universite.module").then(m=>m.UniversiteModule)}, 
        {path:"reservation", loadChildren:()=>import ("./views/admin/reservation/reservation.module").then(m=>m.ReservationModule)},
        {path:"foyer",loadChildren:()=>import ("./views/admin/foyer/foyer.module").then(m=>m.FoyerModule)},
-       {path:"etudiant",loadChildren:()=>import ("./views/admin/etudiant/etudiant.module").then(m=>m.EtudiantModule)}
+       {path:"etudiant",loadChildren:()=>import ("./views/admin/etudiant/etudiant.module").then(m=>m.EtudiantModule)},
+       {path:"chambre",loadChildren:()=>import ("./views/admin/Chambre/chambre.module").then(m=>m.ChambreModule)},
+      
+
        
        
   ]},
