@@ -11,6 +11,7 @@ import { ContactComponent } from 'src/frontoffice/contact/contact.component';
 
 
 
+
 const routes: Routes = [
   {path:"Acceuil", component:FrontLayoutComponent, children:[
       {path:"", loadChildren:()=>import("./views/front/home/home.module").then(m=>m.HomeModule)},
@@ -21,6 +22,22 @@ const routes: Routes = [
   {path:"contact",component: ContactComponent},
 
   {path:"admin",component: AdminLayoutComponent, children: [
+
+       {path:"dashboard", loadChildren:()=>import ("./views/admin/dashboard/dashboard.module").then(m=>m.DashboardModule)},    
+       {path:"login", loadChildren:()=>import ("./views/admin/login-admin/login-admin.module").then(m=>m.LoginAdminModule)},
+       {path:"universite", loadChildren:()=>import ("./views/admin/universite/universite.module").then(m=>m.UniversiteModule)}, 
+       {path:"reservation", loadChildren:()=>import ("./views/admin/reservation/reservation.module").then(m=>m.ReservationModule)},
+       {path:"foyer",loadChildren:()=>import ("./views/admin/foyer/foyer.module").then(m=>m.FoyerModule)},
+       {path:"etudiant",loadChildren:()=>import ("./views/admin/etudiant/etudiant.module").then(m=>m.EtudiantModule)},
+       {path:"chambre",loadChildren:()=>import ("./views/admin/Chambre/chambre.module").then(m=>m.ChambreModule)},
+      
+
+       
+       
+  ]},
+  
+ 
+
       {path:"dashboard", loadChildren:()=>import ("./views/admin/dashboard/dashboard.module").then(m=>m.DashboardModule)},
       {path:"login", loadChildren:()=>import ("./views/admin/login-admin/login-admin.module").then(m=>m.LoginAdminModule)},
       {path:"universite", loadChildren:()=>import ("./views/admin/universite/universite.module").then(m=>m.UniversiteModule)},
@@ -30,6 +47,7 @@ const routes: Routes = [
 
 
     ]},
+
 
 
 ];

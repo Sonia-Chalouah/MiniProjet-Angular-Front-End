@@ -1,0 +1,23 @@
+<!-- add-chambre.component.html -->
+<div class="container mt-6">
+  <h2>Add Chambre</h2>
+  <form #chambreForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="numeroChambre">Numero Chambre:</label>
+      <input type="text" class="form-control" id="numeroChambre" name="numeroChambre" [(ngModel)]="chambre.numeroChambre" required style="font-size: 20px;">
+    </div>
+    <div class="form-group">
+      <label for="typeC">Type:</label>
+      <select id="typeC" class="form-control" name="typeC" [(ngModel)]="chambre.typeC" required style="font-size: 20px;">
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="blocId">Bloc ID:</label>
+      <input type="text" class="form-control" id="blocId" name="blocId" [(ngModel)]="chambre.bloc.idBloc" required style="font-size: 20px;">
+    </div>
+    <button type="submit" class="btn btn-primary mt-2" (click)="onSubmit()">Save</button>
+    <button class="btn btn-sucess mt-2 mr-7" (click)="goToChambreList()">Back to Chambre List</button>
+
+  </form>
+</div>

@@ -1,0 +1,76 @@
+
+.card {
+    background-color: #a5c0d9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    font-size: 16px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th, tbody td {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold; 
+    color: #333; 
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr {
+    color: #ffffff; 
+  }
+  
+  .btn {
+    margin: 5px;
+    font-size: 16px;
+    background-color: #e69a8dff;
+    color: #ffffff;
+    border: none;   
+    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 25px; /* Adjust the value to make the button more or less round */
+
+  }
+  
+  .btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .card-header {
+    background-color: rgb(188, 181, 203);
+    color: #ffffff;
+    padding: 10px;
+    font-size: 24px;
+  }
+  
+  .card-body {
+    padding: 20px; 
+  }
+  
+  thead {
+    background-color:rgb(237, 226, 217);;
+    color: #ffffff;
+  }
+  tbody td {
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  tbody tr:hover {
+    background-color: rgb(237, 226, 217);
+  }
+  .btn-danger {
+    background-color: #d9534f; 
+    color: #ffffff;
+  }
+  
+
+
+
+
+  
