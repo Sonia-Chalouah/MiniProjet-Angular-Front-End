@@ -8,7 +8,6 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { MaterialModule } from 'src/material.module';
 import { ToastrModule } from 'ngx-toastr';
 
 
@@ -28,11 +27,10 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule,
     PdfViewerModule,
     ToastrModule,
     ToastrModule.forRoot(),
-   
+
   ]
 })
 export class UserModule { }

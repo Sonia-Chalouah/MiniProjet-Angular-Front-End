@@ -5,4 +5,5 @@ export class Etudiant{
     cin:number;
     ecole:string;
     dateNaissance:Date;
+    email:string;
 }

@@ -20,7 +20,8 @@ export class UpdateEtudiantComponent implements OnInit {
     prenomEt:'',
     cin:0,
     ecole:'',
-    dateNaissance:null
+    dateNaissance:null,
+    email:''
    };
 
   constructor(private route: ActivatedRoute, private etudiantService: etudiantService, private router: Router) {}
@@ -33,22 +34,13 @@ export class UpdateEtudiantComponent implements OnInit {
       this.etudiant.cin = params['cin'];
       this.etudiant.ecole = params['ecole'];
       this.etudiant.dateNaissance = params['dateNaissance'];
+      this.etudiant.email = params['Email'];
 
 
 
     });
      
 }
-
-
-
-
-
-
-    
-     
-    
-
 
   ModifierFoyer() {
     console.log(this.etudiant)
@@ -61,7 +53,7 @@ export class UpdateEtudiantComponent implements OnInit {
         // Handle success, update UI, or show a success message to the user
       },
       (error) => {
-        console.error('Error modifier foyer :', error);
+        console.error('Error modifier etudiant :', error);
         // Handle error, show an error message to the user
       }
     );

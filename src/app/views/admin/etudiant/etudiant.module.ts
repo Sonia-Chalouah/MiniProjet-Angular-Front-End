@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { EtudiantRoutingModule } from './etudiant-routing.module';
 import { EtudiantComponent } from './etudiants/etudiants.component';
 import { AjouterEtudiantComponent } from './ajouter-etudiant/ajouter-etudiant.component';
@@ -12,7 +11,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DetailComponent } from './detail/detail.component'; 
+import { DetailComponent } from './detail/detail.component';
+
 
 
 
@@ -30,7 +30,7 @@ import { DetailComponent } from './detail/detail.component';
     FormsModule,
     Ng2SearchPipeModule,
     PdfViewerModule,
-    MatPaginatorModule , 
+    MatPaginatorModule ,
     NgxPaginationModule
   ]
 })

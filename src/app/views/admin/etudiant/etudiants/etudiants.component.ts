@@ -1,7 +1,5 @@
 import { Component,OnInit ,ViewChild , AfterViewInit  } from '@angular/core';
 import { etudiantService } from '../../../../service/etudiant.service';
-import { Inject, Input} from '@angular/core';
-import { Etudiant } from './../../../../Model/Etudiant';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -9,7 +7,8 @@ import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { NgxPaginationModule } from 'ngx-pagination'; 
+import { NgxPaginationModule } from 'ngx-pagination';
+import {Etudiant} from "../../../../Model/Etudiant";
 
 
 
@@ -23,7 +22,7 @@ export class EtudiantComponent implements OnInit  {
   title = 'Angular Search Using ng2-search-filter';
   searchText;
   etudiant: Etudiant[] = [];
-  p:number = 1 ; 
+  p:number = 1 ;
 
 POSTS: any;
 page: number = 1;
@@ -39,43 +38,43 @@ constructor( private ServiceEtudiant:etudiantService ) { }
       console.log(this.POSTS);
     });
   }
-  
+
   onTableDataChange(event: any) {
     this.page = event;
     this.postList();
   }
-  
+
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
     this.postList();
 
   }
-   
-    
+
+
 
 
 
   ngOnInit(): void {
     console.log("all data ");
-    
+
     this.getAllEtudiants();
 
   }
 
   printSimplePdf() {
-    
+
     const doc = new jsPDF({
 
       orientation: 'landscape',
       unit: 'in',
       format: [4, 8]
     }
-    
+
     );
 
     // En-tête du tableau
-    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date'];
+    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','Email'];
 
     // Données des étudiants
     const data = this.etudiant.map(etudiant => [
@@ -83,7 +82,8 @@ constructor( private ServiceEtudiant:etudiantService ) { }
       etudiant.prenomEt,
       etudiant.cin,
       etudiant.ecole,
-      etudiant.dateNaissance
+      etudiant.dateNaissance,
+      etudiant.email
     ]);
 
     (doc as any).autoTable({
@@ -100,7 +100,7 @@ constructor( private ServiceEtudiant:etudiantService ) { }
   getAllEtudiants(){
     this.ServiceEtudiant.getAllEtudiants().subscribe((data : Etudiant[])=>{
       console.log("all data ",data);
-    
+
       this.etudiant = data;
       console.log(this.etudiant);
 
@@ -117,14 +117,14 @@ constructor( private ServiceEtudiant:etudiantService ) { }
         window.location.reload();
         });
 
-     
 
 
-        
 
-        
-  
-  
+
+
+
+
+
 
 
 
@@ -136,6 +136,6 @@ constructor( private ServiceEtudiant:etudiantService ) { }
 
   }
 
-  
- 
+
+
 }
