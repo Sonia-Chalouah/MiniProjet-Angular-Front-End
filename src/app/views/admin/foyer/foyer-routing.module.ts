@@ -6,13 +6,14 @@ import { FoyerComponent } from './foyer/foyer.component';
 import { AjouterFoyerComponent } from './ajouter-foyer/ajouter-foyer.component';
 import { UpdateFoyerComponent } from './update-foyer/update-foyer.component';
 import { DetailsFoyerComponent } from './details-foyer/details-foyer.component';
-
+import { GetFoyersComponent } from 'src/frontoffice/oussema/get-foyers.component';
 const routes: Routes = [  {path: "", component: FoyerComponent},
 { path: 'AjouterFoyer', component: AjouterFoyerComponent },
 { path: 'foyer', component: FoyerComponent },
 { path: 'updateFoyer', component: UpdateFoyerComponent },
 { path: 'DetailsFoyer/:id', component: DetailsFoyerComponent },
-{ path: 'StatisticFoyer', component: StatistiqueFoyerComponent }
+{ path: 'StatisticFoyer', component: StatistiqueFoyerComponent },
+{ path: 'getFoyer', component: GetFoyersComponent }
 ];
 
 @NgModule({

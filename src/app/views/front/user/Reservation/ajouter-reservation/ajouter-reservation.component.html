@@ -1,0 +1,318 @@
+<div class="super_container">
+
+  <!-- Header -->
+
+  <header class="header d-flex flex-row">
+    <div class="header_content d-flex flex-row align-items-center">
+      <!-- Logo -->
+      <div class="logo_container">
+        <div class="logo">
+          <img src="assets/template/images/logo.png" alt="">
+          <span>Foyer</span>
+        </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="main_nav_container">
+        <div class="main_nav">
+          <ul class="main_nav_list">
+            <li class="main_nav_item"><a routerLink="#">home</a></li>
+            <li class="main_nav_item"><a routerLink="#">about us</a></li>
+            <li class="main_nav_item"><a routerLink="/">Universite</a></li>
+            <li class="main_nav_item"><a routerLink="/getfoyer">Foyer</a></li>
+            <li class="main_nav_item"><a routerLink="/getblocs">Blocs</a></li>
+            <li class="main_nav_item"><a routerLink="/contact">Chambre</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="header_side d-flex flex-row justify-content-center align-items-center ">
+
+      <span>Sign Up</span>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger_container">
+      <i class="fas fa-bars trans_200"></i>
+    </div>
+
+  </header>
+
+  <!-- Menu -->
+  <div class="menu_container menu_mm">
+
+    <!-- Menu Close Button -->
+    <div class="menu_close_container">
+      <div class="menu_close"></div>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="menu_inner menu_mm">
+      <div class="menu menu_mm">
+        <ul class="menu_list menu_mm">
+          <li class="menu_item menu_mm"><a routerLink="#">Home</a></li>
+          <li class="menu_item menu_mm"><a routerLink="#">About us</a></li>
+          <li class="menu_item menu_mm"><a routerLink="/getfoyer">g</a></li>
+          <li class="menu_item menu_mm"><a routerLink="/getfoyer">Foyer</a></li>
+          <li class="menu_item menu_mm"><a routerLink="news.html">News</a></li>
+          <li class="menu_item menu_mm"><a routerLink="/contact">Contact</a></li>
+        </ul>
+
+        <!-- Menu Social -->
+
+        <div class="menu_social_container menu_mm">
+          <ul class="menu_social menu_mm">
+            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
+          </ul>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+<main class="main-content mt-5">
+  <div
+    class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 " >
+  </div>
+
+  <div class="container">
+    <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+      <div class="col-xl-8 col-lg-8 col-md-7 mx-auto">
+        <div class="card z-index-0">
+          <div class="card-header text-center pt-4">
+            <h1>Reserver une chambre</h1>
+          </div>
+          <!-- Ajoutez cette section après votre formulaire -->
+          <div
+            *ngIf="message"
+            class="alert alert-warning mt-3 mx-2"
+            role="alert"
+          >
+            {{ message }}
+          </div>
+          <div class="card-body">
+            <form
+              role="form"
+              (submit)="ajouterReservation()"
+              #reservationForm="ngForm"
+            >
+              <div class="row">
+
+
+                <!-- <div class="col-6 mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="typeChambre"
+                    aria-label="Type Chambre"
+                    id="typeChambre"
+                    name="typeChambre"
+                    [(ngModel)]="reservation.typeChambre"
+                    required
+                  />
+                </div> -->
+
+
+                <div class="col-6 mb-3">
+                  <select class="form-control" id="bloc_id_bloc" name="bloc_id_bloc" [(ngModel)]="reservation.typeChambre" required>
+                    <option ngValue="TRIPLE">
+                      TRIPLE
+                      </option> 
+                      <option ngValue="SIMPLE">
+                        SIMPLE
+                        </option>
+                         <option ngValue="DOUBLE">
+                          DOUBLE
+                          </option>
+                </select>
+                  <!-- <div *ngIf="reservation.controls['bloc_id_bloc'].invalid && (chambreForm.controls['bloc_id_bloc'].dirty || chambreForm.controls['bloc_id_bloc'].touched)"
+                      class="text-danger">
+                      <div *ngIf="chambreForm.controls['bloc_id_bloc'].errors?.['required']">L'ID du bloc est obligatoire.</div>
+                  </div>
+                   -->
+                </div>
+
+                <div class="col-6 mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Votre Cin"
+                    aria-label="Cin Etudiant"
+                    id="cinEtudiant"
+                    name="cinEtudiant"
+                    [(ngModel)]="reservation.cinEtudiant"
+                    #cinEtudiantInput="ngModel"
+                    required
+                    minlength="8"
+                    maxlength="8"
+                    pattern="[0-9]+"
+                  />
+                  <div *ngIf="cinEtudiantInput.invalid && (cinEtudiantInput.dirty || cinEtudiantInput.touched)" class="text-danger">
+                    <div *ngIf="cinEtudiantInput.errors?.['required']">Le Cin de l'étudiant est requis.</div>
+                    <div *ngIf="cinEtudiantInput.errors?.['minlength'] || cinEtudiantInput.errors?.['maxlength']">Le Cin doit avoir 8 chiffres.</div>
+                    <div *ngIf="cinEtudiantInput.errors?.['pattern']">Entrez uniquement des chiffres.</div>
+                  </div>
+                </div>
+                
+
+
+              </div>
+              <div class="row">
+                <div class="col-6"></div>
+                <button
+                  type="submit"
+                  class="col-2 btn bg-gradient-success w-20 mx-2"
+                >
+                  Ajouter
+                </button>
+                <a routerLink="/Acceuil/user/reservations" type="button" class="col-2 btn bg-gradient-danger w-20">
+                  Annuler
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer mt-5">
+    <div class="container">
+  
+      <!-- Newsletter -->
+  
+      <div class="newsletter">
+        <div class="row">
+          <div class="col">
+            <div class="section_title text-center">
+              <h1>Subscribe to newsletter</h1>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col text-center">
+            <div class="newsletter_form_container mx-auto">
+              <form action="post">
+                <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+                  <input id="newsletter_email" class="newsletter_email" type="email" placeholder="Email Address" required="required" data-error="Valid email is required.">
+                  <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- Footer Content -->
+  
+      <div class="footer_content">
+        <div class="row">
+  
+          <!-- Footer Column - About -->
+          <div class="col-lg-3 footer_col">
+  
+            <!-- Logo -->
+            <div class="logo_container">
+              <div class="logo">
+                <img src="assets/template/images/logo.png" alt="">
+                <span>course</span>
+              </div>
+            </div>
+  
+            <p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum, tempor lacus.</p>
+  
+          </div>
+  
+          <!-- Footer Column - Menu -->
+  
+          <div class="col-lg-3 footer_col">
+            <div class="footer_column_title">Menu</div>
+            <div class="footer_column_content">
+              <ul>
+                <li class="footer_list_item"><a href="#">Home</a></li>
+                <li class="footer_list_item"><a href="#">About Us</a></li>
+                <li class="footer_list_item"><a href="courses.html">Courses</a></li>
+                <li class="footer_list_item"><a href="news.html">News</a></li>
+                <li class="footer_list_item"><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Footer Column - Usefull Links -->
+  
+          <div class="col-lg-3 footer_col">
+            <div class="footer_column_title">Usefull Links</div>
+            <div class="footer_column_content">
+              <ul>
+                <li class="footer_list_item"><a href="#">Testimonials</a></li>
+                <li class="footer_list_item"><a href="#">FAQ</a></li>
+                <li class="footer_list_item"><a href="#">Community</a></li>
+                <li class="footer_list_item"><a href="#">Campus Pictures</a></li>
+                <li class="footer_list_item"><a href="#">Tuitions</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Footer Column - Contact -->
+  
+          <div class="col-lg-3 footer_col">
+            <div class="footer_column_title">Contact</div>
+            <div class="footer_column_content">
+              <ul>
+                <li class="footer_contact_item">
+                  <div class="footer_contact_icon">
+                    <img src="assets/template/images/placeholder.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                  </div>
+                  Blvd Libertad, 34 m05200 Arévalo
+                </li>
+                <li class="footer_contact_item">
+                  <div class="footer_contact_icon">
+                    <img src="assets/template/images/smartphone.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                  </div>
+                  0034 37483 2445 322
+                </li>
+                <li class="footer_contact_item">
+                  <div class="footer_contact_icon">
+                    <img src="assets/template/images/envelope.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                  </div>hello@company.com
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+      <!-- Footer Copyright -->
+  
+      <div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+        <div class="footer_copyright">
+          <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+        </div>
+        <div class="footer_social ml-sm-auto">
+          <ul class="menu_social">
+            <li class="menu_social_item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+            <li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            <li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="menu_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </footer>
+  
+  
+</main>

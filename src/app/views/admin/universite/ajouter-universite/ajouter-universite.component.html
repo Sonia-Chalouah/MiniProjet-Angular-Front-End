@@ -1,0 +1,255 @@
+<div class="mt-5">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <div class="row">
+                <h1 class="col-9">Ajouter universite</h1>
+                <a routerLink="/admin/universite" class="col-2 btn btn-success">Liste des universites
+                </a>
+              </div>
+            </div>
+            <div class="card-header pb-0 pb-2">
+              <form  (ngSubmit)="SaveUniversite()" #universiteForm="ngForm">
+                <div style="display: flex;flex-direction: row;">
+                  <div class="form-container" style="display: flex;justify-content: space-around;" >
+                    <div>
+                      <label for="nomUniversite">Nom Universite</label>
+                      <input type="text" class="form-control" id="nomUniversite" name="nomUniversite"
+                        [(ngModel)]="universite.nomUniversite" required minlength="3" #nomUn="ngModel" style="font-size: 30px;">
+                        <div *ngIf="nomUn.invalid && nomUn.errors">
+                          <div *ngIf="nomUn.errors['required']" class="text-danger">
+                            Nom Universite obligatoire.
+                          </div>
+                          <div *ngIf="nomUn.errors['minlength']" class="text-danger">
+                            Le nom de l'université doit avoir au moins 3 caractères.
+                          </div>
+
+                          <!-- minlength-->
+                          
+                        </div>
+                      </div>
+                    <div>
+                      <label for="adresseUniversite">Adresse Universite</label>
+                      <input type="text" class="form-control" id="adresseUniversite" name="adresseUniversite"
+                        name="universite-adresse" [(ngModel)]="universite.adresse" required minlength="3" #adresseUn="ngModel" style="font-size: 30px;">
+                        <div *ngIf="adresseUn.invalid && adresseUn.errors">
+                          <div *ngIf="adresseUn.errors['required']" class="text-danger">
+                            Adresse Universite obligatoire.
+                          </div>
+
+                          <div *ngIf="nomUn.errors['minlength']" class="text-danger">
+                            L'Adresse Universite doit avoir au moins 3 caractères.
+                          </div>
+                          <!-- minlength-->
+                          
+                        </div>
+                      </div>
+  
+                    <br>
+                    <div class="card" style="width: 60%;">
+                      <div style="display: flex;flex-direction: row;">
+                        <label for="" >Affecter foyer à cette université</label>
+                      <label>
+                        <a class="circular-button" [ngClass]="{ 'active': afficherAffectation }"
+                          (click)="afficherAffectationMethode()">
+                          <span>&#43;</span>
+                        </a>
+                      </label><br />
+                      </div>
+                      <div class="card-header pb-0 pb-2">
+                        
+                        <div *ngIf="afficherAffectation">
+                          <h2>Affecter Foyer à université </h2>
+                          <div style="display: flex; align-items: center;">
+                            <input type="text" class="form-control" name="searchFoyerAffecterAj" placeholder="Rechercher foyer par nom ou Capacité"
+                              [(ngModel)]="searchFoyerAffecterAj">
+                            <button type="button" class="btn btn-danger" (click)="clearSearch()">
+                              <i class="fa fa-times"></i>
+                            </button>
+                          </div>
+                          <div class="tbl-fixed">
+                            <table class="table-style">
+                              <thead>
+                                <tr>
+                                  <th>Nom foyer</th>
+                                  <th>Capacité</th>
+                                  <th>Affectation</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table__body" *ngFor="let foyer of foyersNonAffecter; let i = index">
+                                <tr *ngIf="filteredFoyer(foyer)">
+                                  <td>{{ foyer.nomFoyer }}</td>
+                                  <td>{{ foyer.capaciteFoyer }}</td>
+                                  <td>
+                                    <button type="button" class="btn btn-primary" (click)="selcteFoyer(foyer)">
+                                      Affecter
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+  
+                  <div class="form-container">
+                    <div class="form-content">
+                      <h2 class="form-title">Voulez-vous Ajouter l'université suivante ?</h2>
+    
+                      <div class="form-group">
+                        <label for="nomUniversite">Nom Université : {{universite.nomUniversite}}</label>
+                      </div>
+    
+                      <div class="form-group">
+                        <label for="adresseUniversite">Adresse Université : {{universite.adresse}}</label>
+                      </div>
+    
+                      <div class="form-group">
+                        <label for="foyerUniversite" *ngIf="searchFoyerAffecterAj!=null">Nom Foyer :
+                          {{searchFoyerAffecterAj}} </label>
+                        <label for="foyerUniversite" *ngIf="selcteFoyer==null">Nom Foyer : <span
+                            style="color: red;">Foyer non affecté!</span> </label>
+                      </div>
+    
+                      <button type="submit" class="btn btn-success">Confirmer</button>
+                    </div>
+                  </div>
+  
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+    
+  <div class="mt-5">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <div class="row">
+                <h1 class="col-9">Ajouter universite</h1>
+                <a routerLink="/admin/universite" class="col-2 btn btn-success">Liste des universites
+                </a>
+              </div>
+            </div>
+            <div class="card-header pb-0 pb-2">
+              <form [formGroup]="AjoutForm" (ngSubmit)="SaveUniversite()">
+                <div style="display: flex;flex-direction: row;">
+                  <div class="form-container" style="display: flex;justify-content: space-around;" [ngClass]="{ 'active': f() }">
+                    <div>
+                      <label for="nomUniversite">Nom Universite</label>
+                      <input type="text" class="form-control" id="nomUniversite" formControlName="nomUniversite"
+                         style="font-size: 30px;" [(ngModel)]="universite.nomUniversite">
+                         <div *ngIf="AjoutForm.get('nomUniversite').invalid && (AjoutForm.get('nomUniversite').dirty || AjoutForm.get('nomUniversite').touched)">
+                          <div class="error-text red-text" *ngIf="AjoutForm.get('nomUniversite').hasError('required')">Le nom de l'Universite est requis.</div>
+                          <div class="error-text blue-text" *ngIf="AjoutForm.get('nomUniversite').hasError('minlength')" >Le nom de l'Universite doit avoir au moins 5 caractères.</div>
+                        </div>
+                    </div>
+                    <div>
+                      <label for="adresseUniversite">Adresse Universite</label>
+                      <input type="text" class="form-control" id="adresseUniversite" formControlName="adresseUniversite"
+                          style="font-size: 30px;">
+                          <div *ngIf="AjoutForm.get('adresseUniversite').invalid && (AjoutForm.get('adresseUniversite').dirty || AjoutForm.get('adresseUniversite').touched)">
+                            <div class="error-text red-text" *ngIf="AjoutForm.get('adresseUniversite').hasError('required')">L'adresse de l'Universite est requis.</div>
+                            <div class="error-text blue-text" *ngIf="AjoutForm.get('adresseUniversite').hasError('minlength')">L'adresse de l'Universite doit avoir au moins 5 caractères.</div>
+                          </div>
+                    </div>
+  
+                    <br>
+                    <div class="card" style="width: 60%;">
+                      <div style="display: flex;flex-direction: row;">
+                        <label for="" >Affecter foyer à cette université</label>
+                      <label>
+                        <a class="circular-button" [ngClass]="{ 'active': afficherAffectation }"
+                          (click)="afficherAffectationMethode()">
+                          <span>&#43;</span>
+                        </a>
+                      </label><br />
+                      </div>
+                      <div class="card-header pb-0 pb-2">
+                        
+                        <div *ngIf="afficherAffectation">
+                          <h2>Affecter Foyer à université </h2>
+                          <div style="display: flex; align-items: center;">
+                            <input type="text" class="form-control"  placeholder="Rechercher foyer par nom ou Capacité"
+                            [(ngModel)]="searchFoyerAffecterAj">
+                            <button type="button" class="btn btn-danger" (click)="clearSearch()">
+                              <i class="fa fa-times"></i>
+                            </button>
+                          </div>
+                          <div class="tbl-fixed">
+                            <table class="table-style">
+                              <thead>
+                                <tr>
+                                  <th>Nom foyer</th>
+                                  <th>Capacité</th>
+                                  <th>Affectation</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table__body" *ngFor="let foyer of foyers; let i = index">
+                                <tr *ngIf="filteredFoyer(foyer)"> 
+                                  <td>{{ foyer.nomFoyer }}</td>
+                                  <td>{{ foyer.capaciteFoyer }}</td>
+                                  <td>
+                                    <button type="button" class="btn btn-primary" (click)="selcteFoyer(foyer)">
+                                      Affecter
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+  
+                  <div class="form-container">
+                    <div class="form-content">
+                      <h2 class="form-title">Voulez-vous ajouter l'université suivante ?</h2>
+    
+                      <div class="form-group">
+                        <label for="nomUniversite">Nom Université : {{universite.nomUniversite}}</label>
+                      </div>
+    
+                      <div class="form-group">
+                        <label for="adresseUniversite">Adresse Université : {{universite.adresse}}</label>
+                      </div>
+    
+                      <div class="form-group">
+                        <label for="foyerUniversite" *ngIf="searchFoyerAffecterAj!=null">Nom Foyer :
+                          {{searchFoyerAffecterAj}} </label>
+                        <label for="foyerUniversite" *ngIf="searchFoyerAffecterAj==null">Nom Foyer : <span
+                            style="color: red;">Foyer non affecté!</span> </label>
+                      </div>
+    
+                      <button type="submit" class="btn btn-success" [disabled]="AjoutForm.invalid">Confirmer</button>
+                    </div>
+                  </div>
+  
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+  
+  

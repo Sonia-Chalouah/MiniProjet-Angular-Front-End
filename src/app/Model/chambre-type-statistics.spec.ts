@@ -1,4 +1,4 @@
-import { TypeChambre } from './chambre';
+import { TypeChambre } from './Chambre';
 
 export interface ChambreTypeStatistics {
   type: TypeChambre;

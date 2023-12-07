@@ -5,16 +5,23 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { UniversiteRoutingModule } from './universite-routing.module';
 import { UniversiteComponent } from './universite/universite.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AjouterUniversiteComponent } from './ajouter-universite/ajouter-universite.component';
+import { ModifierUniversiteComponent } from './modifier-universite/modifier-universite.component';
 
 
 
 @NgModule({
   declarations: [
-    UniversiteComponent
+    UniversiteComponent,
+    AjouterUniversiteComponent,
+    ModifierUniversiteComponent
   ],
   imports: [
     CommonModule,
-    UniversiteRoutingModule,MatIconModule
+    UniversiteRoutingModule,MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UniversiteModule { }

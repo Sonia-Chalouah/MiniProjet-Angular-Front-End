@@ -31,7 +31,7 @@ import { Bloc } from 'src/app/Model/Bloc';
      this.foyer.idFoyer = 0;
      this.foyer.nomFoyer = '';
      this.foyer.capaciteFoyer = 0;
-     this.foyer.bloc = [];
+     this.foyer.blocs = [];
      this.foyer.nomBloc = '';
      this.foyer.universiteName = '';
      this.foyer.universiteId = 0;

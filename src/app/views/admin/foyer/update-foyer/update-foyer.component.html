@@ -5,7 +5,12 @@
       <form class="my-4" (submit)="updateFoyer()">
         <div class="form-group">
           <label for="nameFoyer">Name:</label>
-          <input type="text" id="nameFoyer" name="nameFoyer" [(ngModel)]="updatedFoyer.nomFoyer" required class="form-control">
+          <input type="text" id="nameFoyer" name="nameFoyer" [(ngModel)]="updatedFoyer.nomFoyer" required class="form-control" #nameFoyerModel="ngModel">
+        
+          <!-- Custom error message for 'required' validation -->
+          <div *ngIf="nameFoyerModel.invalid && nameFoyerModel.errors" class="text-danger">
+            Name is required.
+          </div>
         </div>
         <div class="form-group">
           <label for="capacite">Capacity:</label>

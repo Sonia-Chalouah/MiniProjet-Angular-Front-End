@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Etudiant } from './../../../../Model/Etudiant';
 import { etudiantService } from './../../../../service/etudiant.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./ajouter-etudiant.component.css']
 })
 export class AjouterEtudiantComponent implements OnInit {
+  minDate: string = '1900-01-01';
   
   etudiant: Etudiant = { 
     idEtudiant:0,
@@ -23,6 +24,8 @@ export class AjouterEtudiantComponent implements OnInit {
 
 
   }
+
+
 
   constructor(private route: ActivatedRoute, private etudiantService: etudiantService, private router: Router) {}
 
@@ -46,5 +49,14 @@ export class AjouterEtudiantComponent implements OnInit {
   onSubmit() {
     console.log(this.etudiant);
     this.saveEtudiant();
+  }
+  validateEmailFormat(control: FormControl) {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (!emailPattern.test(control.value)) {
+      return { invalidEmail: true };
+    }
+
+    return null;
   }
 }

@@ -1,0 +1,36 @@
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 600px; /* Adjust the width as needed */
+  padding: 20px; /* Adjust the padding as needed */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.card-body-big {
+  padding: 30px; /* Adjust the padding as needed */
+  align-items: center;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  align-items: center;
+}
+
+.form-control {
+  font-size: 18px; /* Adjust the font size as needed */
+  align-items: center;
+}
+
+.form-group label {
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.btn {
+  font-size: 13px; /* Adjust the font size as needed */
+}

@@ -4,6 +4,7 @@ import { GetChambreComponent } from './get-chambre/get-chambre.component';
 import { DetailsChambreComponent } from './details-chambre/details-chambre.component';
 import { UpdateChambreComponent } from './update-chambre/update-chambre.component';
 import { AddChambreComponent } from './add-chambre/add-chambre.component';
+import { ContactComponent } from 'src/frontoffice/contact/contact.component';
 
 const routes: Routes = [
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'detail', component: DetailsChambreComponent },
   { path: 'Ajouter', component: AddChambreComponent },
   { path: 'updateChambre/:id', component: UpdateChambreComponent },
+  { path: 'contact', component: ContactComponent },
 
 ];
 

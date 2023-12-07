@@ -1,40 +1,59 @@
-<div class="mt-5">
-  <div class="container-fluid py-4">
-<form (ngSubmit)="ModifierFoyer()">
-<div class="form-group">
-  <label for="updatenomEt">nom etudiant </label>
-  <input type="text" class="form-control" id="updatenomEt" name="updatenomEt" value="nomEt"  [(ngModel)]="etudiant.nomEt" >
-</div>
-<div class="form-group">
-  <label for="updateprenomEt">prenom etudiant </label>
-  <input type="text" class="form-control" id="updateprenomEt" name="updateprenomEt" value="prenomEt" [(ngModel)]="etudiant.prenomEt">
-</div>
-<div class="form-group">
-  <label for="updateEtat">cin etudiant </label>
-  <input type="text" class="form-control" id="updatecin" name="updatecin" value="cin" [(ngModel)]="etudiant.cin">
-</div>
-
-<div class="form-group">
-  <label for="updateEtat"> ecole </label>
-  <input type="text" class="form-control" id="updateecole" name="updateecole" value="ecole" [(ngModel)]="etudiant.ecole">
-</div>
-
-
-<div class="form-group">
-  <label for="updatedateNaissance">dateNaissance etudiant </label>
-  <input type="date" class="form-control" id="updatedateNaissance" name="updatedateNaissance" value="dateNaissance" [(ngModel)]="etudiant.dateNaissance">
-</div>
-<div class="form-group">
-  <label for="updateEtat">email</label>
-  <input type="text" class="form-control" id="updateemail" name="updateemail" value="email" [(ngModel)]="etudiant.email">
-</div>
-<div class="row">
-  <div class="col-md-4">
-  
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title mb-0">Modifier l'étudiant</h1>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="ModifierFoyer()">
+        <div class="mb-3">
+          <label for="updatenomEt" class="form-label">Nom étudiant</label>
+          <input type="text" class="form-control" id="updatenomEt" name="updatenomEt" [(ngModel)]="etudiant.nomEt" required #updatenomEt="ngModel">
+          <div *ngIf="updatenomEt.invalid && updatenomEt.errors">
+            <div *ngIf="updatenomEt.errors['required']" class="text-danger">
+              Nom étudiant est obligatoire.
+            </div>
+            <!-- Add additional conditions for other validations if needed -->
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="updateprenomEt" class="form-label">Prénom étudiant</label>
+          <input type="text" class="form-control" id="updateprenomEt" name="updateprenomEt" [(ngModel)]="etudiant.prenomEt">
+        </div>
+        <div class="mb-3">
+          <label for="updatecin" class="form-label">CIN étudiant</label>
+          <input type="text" class="form-control" id="updatecin" name="updatecin" [(ngModel)]="etudiant.cin" required maxlength="8" #updatecin="ngModel">
+          <div *ngIf="updatecin.invalid && (updatecin.errors['required'] || updatecin.errors['maxlength'])" class="text-danger">
+            <div *ngIf="updatecin.errors['required']">
+              CIN étudiant est obligatoire.
+            </div>
+            <div *ngIf="updatecin.errors['maxlength']">
+              CIN étudiant doit avoir au maximum 8 chiffres.
+            </div>
+            <!-- Add additional conditions for other validations if needed -->
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="updateecole" class="form-label">École</label>
+          <input type="text" class="form-control" id="updateecole" name="updateecole" [(ngModel)]="etudiant.ecole" required #updateecole="ngModel">
+          <div *ngIf="updateecole.invalid && updateecole.errors">
+            <div *ngIf="updateecole.errors['required']" class="alert alert-danger">
+              École est obligatoire.
+            </div>
+            <!-- Add additional conditions for other validations if needed -->
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="updatedateNaissance" class="form-label">Date de naissance</label>
+          <input type="date" class="form-control" id="updatedateNaissance" name="updatedateNaissance" [(ngModel)]="etudiant.dateNaissance">
+        </div>
+        <div class="mb-3">
+          <label for="updateemail" class="form-label">Email</label>
+          <input type="text" class="form-control" id="updateemail" name="updateemail" [(ngModel)]="etudiant.email">
+        </div>
+        
+        <button type="submit" class="btn btn-success">Modifier</button>
+      </form>
+    </div>
   </div>
 </div>
-<button type="submit" class="btn btn-primary">Modifier </button>
-</form>
-</div>
-</div>
-

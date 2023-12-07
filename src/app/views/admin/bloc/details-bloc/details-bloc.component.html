@@ -1,0 +1,52 @@
+<div class="card-container container-lg mt-7 ">
+    <div class="card ">
+      <div class="card-header">
+        <h2 class="details-header">Details of Bloc {{ bloc?.idBloc }}</h2>
+      </div>
+      <div class="card-body ">
+        <div class="card mb-5 d-flex justify-content-center align-items-center">
+          <p><strong>Name:</strong> {{ bloc?.nomBloc }}</p>
+          <p><strong>Capacité:</strong> {{ bloc?.capaciteBloc }}</p>
+          <p><strong>Foyer:</strong> {{ bloc?.foyer?.idFoyer }}</p>
+          <!-- Add more details as needed -->
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-column">
+          <h3 class="text-center font-weight-bold">List of Chambres affectés:</h3>
+          <ul class="list-group">
+            <li *ngFor="let chambre of chambres" class="list-group-item">
+              <div class="card mb-3 d-flex align-items-center">
+                <div class="card-body">
+                  <p class="card-text"><strong>Id Chambre:</strong> {{ chambre.idChambre }}</p>
+                  <p class="card-text"><strong>Numero Chambre:</strong> {{ chambre.numeroChambre }}</p>
+                  <p class="card-text"><strong>TypeChambre:</strong> {{ chambre.typeC }}</p>
+                  <!-- Add more chambre details as needed -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card-column">
+          <h3  class="text-center font-weight-bold" >Details of Foyer affected:</h3>
+          <ul class="list-group">
+            <li *ngFor="let foyer of foyers" class="list-group-item">
+              <div class="card mb-3 d-flex align-items-center">
+                <div class="card-body">
+                  <p class="card-text"><strong>Id Foyer:</strong> {{ foyer.idFoyer }}</p>
+                  <p class="card-text"><strong>Nom Foyer:</strong> {{ foyer.nomFoyer }}</p>
+                  <p class="card-text"><strong>Capacite Foyer:</strong> {{ foyer.capaciteFoyer }}</p>
+                  <!-- Add more foyer details as needed -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div *ngIf="!bloc" class="loading">
+  <p>Loading...</p>
+</div>

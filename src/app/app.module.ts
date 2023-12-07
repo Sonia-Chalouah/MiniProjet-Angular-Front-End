@@ -20,7 +20,8 @@ import { ChambreModule } from './views/admin/Chambre/chambre.module';
 import { BodyComponent } from 'src/frontoffice/body/body.component';
 import { NavbarComponent } from 'src/frontoffice/navbar/navbar.component';
 import { FooterComponent } from 'src/frontoffice/footer/footer.component';
-import { ContactComponent } from 'src/frontoffice/contact/contact.component';
+
+import { UserModule } from './views/front/user/user.module';
 
 
 
@@ -36,8 +37,8 @@ import { ContactComponent } from 'src/frontoffice/contact/contact.component';
     
 BodyComponent,
 NavbarComponent,
-FooterComponent,
-ContactComponent
+FooterComponent
+
 
 
 
@@ -60,8 +61,8 @@ ContactComponent
     
    
 
-    ToastrModule
-
+    ToastrModule,
+    UserModule
 
 
 

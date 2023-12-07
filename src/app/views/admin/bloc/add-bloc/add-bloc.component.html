@@ -1,0 +1,52 @@
+<div class="card-container mt-5">
+  <div class="card">
+    <div class="card-body-big">
+      <h2 class="card-title text-center"><strong><em>Add Bloc</em></strong></h2>
+      <form #BlocForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nomBloc" class="text-center">Nom Bloc:</label>
+          <input type="text" class="form-control" id="nomBloc" name="nomBloc" [(ngModel)]="bloc.nomBloc" required class="form-control" #nomBlocModel="ngModel">
+
+          <!-- Custom error message for 'required' validation -->
+          <div *ngIf="nomBlocModel.invalid && nomBlocModel.errors" class="text-danger">
+            Nom Bloc is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="capaciteBloc" class="text-center">Capacite Bloc:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="capaciteBloc"
+            name="capaciteBloc"
+            [(ngModel)]="bloc.capaciteBloc"
+            #capaciteBlocModel="ngModel"
+            required
+            pattern="^[1-9]\d*$"
+          />
+
+          <!-- Custom error message for 'required' validation -->
+          <div *ngIf="capaciteBlocModel.invalid && capaciteBlocModel.errors?.['required'] && (capaciteBlocModel.touched || capaciteBlocModel.dirty)" class="text-danger">
+            Capacite Bloc is required.
+          </div>
+
+          <!-- Custom error message for 'pattern' validation -->
+          <div *ngIf="capaciteBlocModel.invalid && capaciteBlocModel.errors?.['pattern'] && (capaciteBlocModel.touched || capaciteBlocModel.dirty)" class="text-danger">
+            Please enter a positive number.
+          </div>
+        </div>
+
+        <!-- Additional custom error messages can be added as needed -->
+
+        <div class="form-group">
+          <label for="foyerId" class="text-center">Foyer ID:</label>
+          <input type="text" class="form-control" id="foyerId" name="foyerId" [(ngModel)]="bloc.foyer.idFoyer" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

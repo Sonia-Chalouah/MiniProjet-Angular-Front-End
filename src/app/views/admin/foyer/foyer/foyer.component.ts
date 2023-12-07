@@ -1,18 +1,24 @@
-
-import { Component,OnInit  } from '@angular/core';
+import { Component,EventEmitter,Input,OnInit ,Output } from '@angular/core';
 import { Foyer } from 'src/app/Model/Foyer';
 import { Universite } from 'src/app/Model/Universite';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FoyerService } from 'src/app/service/foyer.service';
 import Swal from 'sweetalert2';
+import { Bloc } from 'src/app/Model/Bloc';
 @Component({
   selector: 'app-foyer',
   templateUrl: './foyer.component.html',
   styleUrls: ['./foyer.component.css']
 })
 export class FoyerComponent implements OnInit  {
+
+  @Input() foyerInput: Foyer[] = [];
+  @Output()  foyerOutput: EventEmitter<Foyer[]> = new EventEmitter<Foyer[]>();
+  universite: Universite;
   foyers: Foyer[] = [];
+  filteredFoyers: Foyer[] = [];
+blocs : Bloc [] = [];
   selectedFoyer: Foyer | null = null;
   foyerNameSearch: string = ''; // Variable for searching by foyer name
   universityNameSearch: string = '';
@@ -22,8 +28,13 @@ export class FoyerComponent implements OnInit  {
 POSTS: any;
 page: number = 1;
 count: number = 0;
-tableSize: number = 10;
+tableSize: number = 5;
 tableSizes: any = [5, 10, 15, 20];
+alphabetFilter: string = '';
+minCapacity: number | null = null;
+maxCapacity: number | null = null;
+univesite: Universite;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -32,12 +43,15 @@ tableSizes: any = [5, 10, 15, 20];
 
   ngOnInit() {
     this.findAllFoyersWithUniversiteAndBlocs();
-
+    //this.filterFoyers();
+    this.loadUniversities();
   }
 
   findAllFoyersWithUniversiteAndBlocs() {
     this.foyerService.findAllFoyersWithUniversiteAndBlocs().subscribe(foyers => {
       this.foyers = foyers;
+   //   this.filterFoyers();
+      this.loadUniversities();
     });
   }
 
@@ -96,10 +110,10 @@ tableSizes: any = [5, 10, 15, 20];
 
   openUpdateModal(foyer: Foyer): void {
     this.selectedFoyer = { ...foyer };  // Make a copy of the selected foyer
-
-    // Extract the idBloc from the first element in the bloc array
-    const selectedBlocId = foyer.bloc.length > 0 ? foyer.bloc[0].nomBloc : null;
-
+  
+    // Extract the idBloc from the first element in the bloc array if bloc is not null or undefined
+    const selectedBlocId = foyer.blocs?.length > 0 ? foyer.blocs[0].nomBloc : null;
+  
     // Navigate to the update component and pass the selectedFoyer and selectedBlocId as query parameters
     this.router.navigate(['/admin/foyer/updateFoyer'], {
       queryParams: {
@@ -109,6 +123,7 @@ tableSizes: any = [5, 10, 15, 20];
       }
     });
   }
+  
   selectFoyer(foyer: Foyer): void {
     this.selectedFoyer = foyer;
   }
@@ -129,6 +144,7 @@ tableSizes: any = [5, 10, 15, 20];
         this.loadUniversities();
       },
       error => {
+
         console.error('Failed to search foyers by name:', error);
         // Handle the error and display an appropriate error message to the user
       }
@@ -183,19 +199,47 @@ tableSizes: any = [5, 10, 15, 20];
     this.postList();
   }
 
-  onTableSizeChange(event: any): void {
+ /* onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
     this.postList();
 
-  }
+  }*/
   postList(): void {
     this.foyerService.findAllFoyersWithUniversiteAndBlocs().subscribe((response) => {
       this.POSTS = response;
       console.log(this.POSTS);
     });
   }
+  getBlocsByFoyerId(idFoyer: number): void {
+    this.foyerService.getBlocssByFoyerId(idFoyer).subscribe(
+      (blocs: Bloc[]) => {
+        this.blocs = blocs;
+      },
+      (error) => {
+        // Handle error
+      }
+    );
+  }
 
+/*  filterFoyers(): void {
+    this.foyerService.filterFoyers(this.alphabetFilter, this.minCapacity, this.maxCapacity)
+      .subscribe(foyers => {
+        this.foyers = foyers;
+      });
+  }
+*/
+
+
+getFoyerByUniversiteId(): void {
+  this.foyerService.getFoyerByUniversiteId(this.universite.idUniversite)
+    .subscribe(
+      (foyer: Foyer) => {
+        this.foyers = [foyer]; // Assign the received foyer directly as a single-element array
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 }
-
-
+}

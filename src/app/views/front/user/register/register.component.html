@@ -1,21 +1,68 @@
-<<<<<<< HEAD
-<main class="main-content mt-0">
-  <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-    style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
-    <span class="mask bg-gradient-dark opacity-6"></span>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-5 text-center mx-auto">
-          <h1 class="text-white mb-2 mt-5">Bienvenue!</h1>
-          <p class="text-lead text-white">
-            Découvrez tout ce que notre université a à offrir. Explorez nos foyers, blocs, chambres et faites vos réservations en quelques clics.
-          </p>
+<style>
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Adjust as needed */
+  }
+
+  .search_submit_button,
+  [mat-raised-button] {
+    flex: 1; /* Distribute available space evenly */
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+</style>
+<div class="register">
+
+  <div class="container-fluid mt-7">
+
+    <div class="row row-eq-height">
+      <div class="col-lg-6 nopadding">
+
+        <!-- Register -->
+
+        <div class="register_section d-flex flex-column align-items-center justify-content-center">
+          <div class="register_content text-center">
+            <h1 class="register_title">Register now </h1>
+            <p class="register_text">Bienvenue sur notre site de réservation de foyers dédiés aux étudiants ! Pour profiter de tous les avantages et faciliter vos réservations.</p>
+            <div class="button button_1 register_button mx-auto trans_200"><a href="#">Login now</a></div>
+          </div>
         </div>
+
+      </div>
+
+      <div class="col-lg-6 nopadding">
+
+        <!-- Search -->
+
+        <div class="search_section d-flex flex-column align-items-center justify-content-center">
+          <div class="search_background" style="background-image:url(assets/template/images/search_background.jpg);"></div>
+          <div class="search_content text-center">
+            <h1 class="search_title"> Creation d'un nouvel compte</h1>
+            <form  class="example-form" [formGroup]="registerform"
+            (ngSubmit)="proceedregister()">
+              <input id="search_form_name" class="input_field search_form_name" type="text" placeholder="User name" required="required" data-error="Course name is required." matInput formControlName="id"  >
+              <input id="search_form_category" class="input_field search_form_category" type="text" placeholder="Name" matInput formControlName="name">
+              <input id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="email"  type="email" matInput formControlName="email">
+              <input id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="Password"  type="password" matInput formControlName="password">
+            
+              <mat-radio-group
+              formControlName="gender"
+              aria-label="Select an option"
+              class="mx-2"
+            >
+              <mat-radio-button value="male">Male</mat-radio-button>
+              <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+            <div class="button-container">
+              <button id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit">Submit</button>
+              <button routerLink="/login" id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit">Back To Login</button>
+            </div>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-  
-</main>
-=======
->>>>>>> 86e33fc9b22a785c9d036045d48a4a9d2d97b8b4
+</div>

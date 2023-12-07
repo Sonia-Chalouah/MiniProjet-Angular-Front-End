@@ -1,0 +1,217 @@
+{
+  "user": [
+    {},
+    {
+      "id": "admin",
+      "name": "admin",
+      "password": " ",
+      "email": "admin@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "ahmed",
+      "name": "ahmed",
+      "password": "Ca1920..@@",
+      "email": "ahmed@gmail.com",
+      "gender": "male",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "salma",
+      "name": "salma",
+      "password": "Ca1920..@@",
+      "email": "salma@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "ones ",
+      "name": "ones",
+      "password": "Ca1920..@@",
+      "email": "ones@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": true
+    },
+    {
+      "id": "salah",
+      "name": "salah",
+      "password": "Ca1920..@@",
+      "email": "salah@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "ahmed",
+      "name": "ahmed",
+      "password": "Ca1920..@@",
+      "email": "ahmed@gmail.com",
+      "gender": "male",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "aziza",
+      "name": "aziza",
+      "password": "Ca1920..@@",
+      "email": "aziza@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "eyaEYA",
+      "name": "eya",
+      "password": "Ca1920..@@",
+      "email": "EYA@GMAIL.COM",
+      "gender": "male",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "khalil",
+      "name": "khalil",
+      "password": "Ca1920..@@",
+      "email": "khalil@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "sonia",
+      "name": "sonia",
+      "password": "Ca1920..@@",
+      "email": "sonia@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": true
+    },
+    {
+      "id": "onsons",
+      "name": "onsons",
+      "password": "Ca1920..@@",
+      "email": "ons@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "gamma",
+      "name": "gamma",
+      "password": "Ca1920..@@",
+      "email": "gamma@gmail.com",
+      "gender": "male",
+      "isactive": true,
+      "role": "admin"
+    },
+    {
+      "id": "mazen",
+      "name": "mazen",
+      "password": "Ca1920..@@",
+      "email": "mazen@gmail.com",
+      "gender": "male",
+      "role": "admin"
+    },
+    {
+      "id": "motez",
+      "name": "motez",
+      "password": "Ca1920..@@",
+      "email": "moatz@gmail.com",
+      "gender": "male",
+      "role": "admin"
+    },
+    {
+      "id": "yassine",
+      "name": "yassine",
+      "password": "Ca1920..@@",
+      "email": "ahmed@gmail",
+      "gender": "male",
+      "role": "user"
+    },
+    {
+      "id": "montasser",
+      "name": "benouirane",
+      "password": "Ca1920..@@",
+      "email": "montabwi@gmail.com",
+      "gender": "male",
+      "role": ""
+    },
+    {
+      "id": "montasserr",
+      "name": "benouiranee",
+      "password": "MontaB..@12",
+      "email": "montabbwi@gmail.com",
+      "gender": "male",
+      "role": "admin"
+    },
+    {
+      "id": "montasserrr",
+      "name": "benoa",
+      "password": "Monta123M..@",
+      "email": "montasserr@gmmail.com",
+      "gender": "male",
+      "role": "user"
+    },
+    {
+      "id": "azaza",
+      "name": "azaza",
+      "password": "Ca1920..@@",
+      "email": "ahmedjemai@gmail.com",
+      "gender": "male",
+      "role": "admin"
+    },
+    {
+      "id": "sondes",
+      "name": "sondes",
+      "password": "Ca1920..@@",
+      "email": "sondes@gmail.com",
+      "gender": "male",
+      "role": "admin"
+    },
+    {
+      "id": "karim",
+      "name": "karim",
+      "password": "Ca1920..@@",
+      "email": "karim@gmail.com",
+      "gender": "male",
+      "role": "user"
+    },
+    {
+      "id": "Rouaa",
+      "name": "roua",
+      "password": "Roua12..@@",
+      "email": "roua@gmail.com",
+      "gender": "female",
+      "role": "user"
+    },
+    {
+      "id": "Amine",
+      "name": "amine",
+      "password": "Amine12..@@",
+      "email": "amine@gmail.com",
+      "gender": "male",
+      "role": "admin"
+    },
+    {
+      "id": "salsabil",
+      "name": "salsabil",
+      "password": "Eya..12@@",
+      "email": "salsabil@gmail.com",
+      "gender": "male",
+      "role": "user"
+    },
+    {
+      "id": "Sonia",
+      "name": "Sonia",
+      "password": "Sonia..12@@",
+      "email": "sonia@gmail.com",
+      "gender": "female",
+      "role": "user"
+    }
+  ]
+}

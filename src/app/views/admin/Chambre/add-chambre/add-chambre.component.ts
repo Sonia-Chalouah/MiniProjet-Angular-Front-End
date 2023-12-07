@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Chambre } from 'src/app/Model/chambre';
-import { TypeChambre } from 'src/app/Model/chambre';
+import { Chambre } from 'src/app/Model/Chambre';
+import { TypeChambre } from 'src/app/Model/Chambre';
 import { Router } from '@angular/router';
 import { Bloc } from 'src/app/Model/Bloc';
 import { ChambreService } from 'src/app/service/chambre.service';

@@ -1,0 +1,86 @@
+.circular-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center; /* Ajoutez cette propriété pour centrer horizontalement le texte */
+    line-height: 20px;  /* Ajoutez cette propriété pour centrer verticalement le texte */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .circular-button.active {
+    background-color: #28a745; /* Couleur différente lorsque le bouton est activé */
+  }
+  
+  /* Ajoutez ce style pour le tableau */
+.table-style {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style pour les cellules du tableau */
+.table-style th, .table-style td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style pour l'en-tête du tableau */
+.table-style th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0px;
+}
+
+.table-style tbody {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.form-search {
+ align-items: first baseline;
+}
+.form-container {
+  width: 50%;
+  border: 2px solid #5E72E4;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(6, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container.active{
+  border: 2px solid red;
+}
+.form-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tbl-fixed{
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: fit-content;
+  max-height: 30vh;
+}
+
+.error-text {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.red-text {
+  color: red;
+}
+
+.blue-text {
+  color: blue;
+}

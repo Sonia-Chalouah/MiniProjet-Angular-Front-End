@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Chambre } from '../Model/chambre';
+import { Chambre } from '../Model/Chambre';
 import { Reservation } from '../Model/Reservation';
 import { HttpClient } from '@angular/common/http';
 import { ChambreTypeStatistics } from '../Model/chambre-type-statistics';
@@ -56,6 +56,10 @@ export class ChambreService {
 
   getChambreTypeStatistics(): Observable<ChambreTypeStatistics[]> {
     return this.httpClient.get<ChambreTypeStatistics[]>(`${this.chambreBaseUrl}/types`);
+  }
+
+  deleteChambreByid(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.chambreBaseUrl}/delete/${id}`);
   }
 }
 

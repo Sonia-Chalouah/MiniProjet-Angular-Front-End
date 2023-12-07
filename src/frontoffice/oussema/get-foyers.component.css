@@ -1,0 +1,43 @@
+.card {
+    flex: 0 0 calc(30% - 20px); /* Adjust the flex value to make cards smaller */
+    margin-bottom: 10px; /* Adjust margin-bottom to add space between cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+}
+
+.card .card-body {
+    flex: 1; /* Allow the card body to grow */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+}
+
+.card .image-container {
+    margin-bottom: 15px;
+}
+
+.card img {
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+}
+
+/* You can also add additional styles for better responsiveness */
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 calc(100% - 20px); /* Cards will take full width on smaller screens */
+    }
+}
+
+.btn-reserve {
+    background-color: #ffc107; /* Yellow background color */
+    color: #212529; /* Text color */
+    border-color: #ffc107; /* Border color */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the button */
+.btn-reserve:hover {
+    background-color: #ffca2b; /* Darker yellow on hover */
+    border-color: #ffca2b; /* Darker border color on hover */
+    color: #212529; /* Text color on hover */
+}

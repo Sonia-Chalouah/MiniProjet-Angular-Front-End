@@ -4,9 +4,15 @@
       <h2 class="text-center mb-4">Ajouter Foyer</h2>
       <form class="my-4" (ngSubmit)="ajouterFoyerEtAffecterAUniversite()" #foyerForm="ngForm">
         <div class="row mb-3">
-          <div class="col-6">
+          <div class="col-6 mb-3">
             <label for="nomFoyer" class="form-label">Foyer Name:</label>
-            <input type="text" id="nomFoyer" [(ngModel)]="foyer.nomFoyer" name="nomFoyer" required class="form-control">
+            <input type="text" id="nomFoyer" [(ngModel)]="foyer.nomFoyer" name="nomFoyer" required class="form-control" #nomFoyer="ngModel">
+            <div *ngIf="nomFoyer.invalid && nomFoyer.errors">
+              <div *ngIf="nomFoyer.errors['required']" class="alert alert-danger">
+                Foyer Name is required.
+              </div>
+              <!-- Add additional conditions for other validations if needed -->
+            </div>
           </div>
 
           <div class="col-6">

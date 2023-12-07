@@ -7,6 +7,8 @@ import { AddChambreComponent } from './add-chambre/add-chambre.component';
 import { GetChambreComponent } from './get-chambre/get-chambre.component';
 import { DetailsChambreComponent } from './details-chambre/details-chambre.component';
 import { UpdateChambreComponent } from './update-chambre/update-chambre.component';
+import { ContactComponent } from 'src/frontoffice/contact/contact.component';
+import { NavbarComponent } from 'src/frontoffice/navbar/navbar.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { UpdateChambreComponent } from './update-chambre/update-chambre.componen
     GetChambreComponent,
     DetailsChambreComponent,
     UpdateChambreComponent,
+    ContactComponent
+
 
 
   ],

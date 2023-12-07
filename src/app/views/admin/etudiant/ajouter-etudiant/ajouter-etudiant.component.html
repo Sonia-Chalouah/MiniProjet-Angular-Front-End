@@ -25,40 +25,61 @@
 
 <br>
 
-<form (ngSubmit)="saveEtudiant()" #etudiantForm="ngForm">
-    <div class="form-group">
-      <label for="nom">Nom:</label>
-      <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="etudiant.nomEt" required>
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title mb-0">Ajouter un étudiant</h1>
     </div>
-  
-    <div class="form-group">
-      <label for="prenom">Prénom:</label>
-      <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="etudiant.prenomEt" required>
+    <div class="card-body">
+      <form (ngSubmit)="saveEtudiant()" #etudiantForm="ngForm">
+        <div class="mb-3">
+          <label for="nomEt" class="form-label">Nom étudiant</label>
+          <input type="text" class="form-control" id="nomEt" name="nomEt" [(ngModel)]="etudiant.nomEt" required #nomEt="ngModel">
+          <div *ngIf="nomEt.invalid && nomEt.errors">
+            <div *ngIf="nomEt.errors['required']" class="text-danger">
+              Nom étudiant est obligatoire.
+            </div>
+            <!-- Add additional conditions for other validations if needed -->
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="prenomEt" class="form-label">Prénom étudiant</label>
+          <input type="text" class="form-control" id="prenomEt" name="prenomEt" [(ngModel)]="etudiant.prenomEt" required>
+        </div>
+        <div class="mb-3">
+          <label for="cin" class="form-label">CIN étudiant</label>
+          <input type="text" class="form-control" id="cin" name="cin" [(ngModel)]="etudiant.cin" required #cin="ngModel">
+          <div *ngIf="cin.invalid && cin.errors">
+            <div *ngIf="cin.errors['required']" class="text-danger">
+              CIN étudiant est obligatoire.
+            </div>
+            <!-- Add additional conditions for other validations if needed -->
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="ecole" class="form-label">École</label>
+          <input type="text" class="form-control" id="ecole" name="ecole" [(ngModel)]="etudiant.ecole" required>
+        </div>
+        <div class="mb-3">
+          <label for="dateNaissance" class="form-label">Date de naissance</label>
+          <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" [(ngModel)]="etudiant.dateNaissance" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" id="email" name="email" [(ngModel)]="etudiant.email" required #email="ngModel">
+          <div *ngIf="email.invalid && email.errors">
+            <div *ngIf="email.errors['required']" class="text-danger">
+              Email is required.
+            </div>
+           
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!etudiantForm.valid">Ajouter</button>
+      </form>
     </div>
-  
-    <div class="form-group">
-      <label for="cin">CIN:</label>
-      <input type="text" class="form-control" id="cin" name="cin" [(ngModel)]="etudiant.cin" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="ecole">École:</label>
-      <input type="text" class="form-control" id="ecole" name="ecole" [(ngModel)]="etudiant.ecole" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="date">Date:</label>
-      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="etudiant.dateNaissance" required>
-    </div>
+  </div>
+</div>
 
-    <div class="form-group">
-      <label for="email">email:</label>
-      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="etudiant.email" required>
-    </div>
-  
-    <button type="submit" class="btn btn-primary" [disabled]="!etudiantForm.valid" routerLink="this.router.navigate(['admin/etudiant']);" >Ajouter</button>
-</form>
 
 </body>
 </html>
-

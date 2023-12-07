@@ -34,7 +34,7 @@ export class UpdateEtudiantComponent implements OnInit {
       this.etudiant.cin = params['cin'];
       this.etudiant.ecole = params['ecole'];
       this.etudiant.dateNaissance = params['dateNaissance'];
-      this.etudiant.email = params['Email'];
+      this.etudiant.email = params['email'];
 
 
 

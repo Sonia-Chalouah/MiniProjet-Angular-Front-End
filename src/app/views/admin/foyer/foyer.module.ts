@@ -11,13 +11,15 @@ import { UpdateFoyerComponent } from './update-foyer/update-foyer.component';
 import { StatistiqueFoyerComponent } from './statistique-foyer/statistique-foyer.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GetFoyersComponent } from 'src/frontoffice/oussema/get-foyers.component';
 
 @NgModule({
   declarations: [
     FoyerComponent,
     AjouterFoyerComponent,
     UpdateFoyerComponent,
-    StatistiqueFoyerComponent
+    StatistiqueFoyerComponent,
+    GetFoyersComponent
   ],
   imports: [
     CommonModule,

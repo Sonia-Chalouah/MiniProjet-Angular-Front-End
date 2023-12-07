@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-6">
-            <div class="form-group">
+              <div class="form-group">
               <input type="text" class="form-control" id="foyerNameSearch" placeholder="Enter Foyer Name" [(ngModel)]="foyerNameSearch" name="foyerNameSearch" (input)="searchFoyersByFoyerName()">
             </div>
           </div>
@@ -13,6 +13,7 @@
               <input type="text" class="form-control" id="universityNameSearch" placeholder="Enter University Name" [(ngModel)]="universityNameSearch" name="universityNameSearch" (input)="searchFoyersByUniversite()">
             </div>
           </div>
+ 
         </div>
       </div>
     </div>
@@ -20,11 +21,7 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <div class="row">
-              <h3 class="col-9">Liste des foyers</h3>
-              <a routerLink="AjouterFoyer" class="col-1 btn btn-success">Ajouter </a>
-              <a routerLink="StatisticFoyer" class="col-1 btn btn-info">statistique </a>
-            </div>
+      
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
@@ -39,16 +36,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let foyer of foyers">
+                  <tr *ngFor="let foyer of foyers | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index">
                     <td class="col-1">{{ foyer.idFoyer }}</td>
                     <td class="col-3">{{ foyer.nomFoyer }}</td>
                     <td class="col-2">{{ foyer.capaciteFoyer }}</td>
                     <td class="col-3">{{ foyer.universiteName }}</td>
-                    <ng-template #nullDisplay>
-                      <td class="col-3">
-                        <a class="btn btn-warning btn-sm" style="background-color: rgb(231, 164, 102)">Non affecté</a>
-                      </td>
-                    </ng-template>
                     <td class="col-3">
                       <a class="btn text-success" (click)="detailsFoyer(foyer.idFoyer)">
                         <span class="material-icons">visibility</span>
@@ -63,6 +55,10 @@
                   </tr>
                 </tbody>
               </table>
+          
+                <a routerLink="AjouterFoyer" class="btn text-success">Ajouter </a>
+                <a routerLink="StatisticFoyer" class="btn text-success">statistique </a>
+              
             </div>
           </div>
         </div>

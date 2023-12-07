@@ -41,7 +41,7 @@ tableSizes: any = [5, 10, 15, 20];
       this.etudiant.cin = params['cin'];
       this.etudiant.ecole = params['ecole'];
       this.etudiant.dateNaissance = params['dateNaissance'];
-      this.etudiant.email = params['Email'];
+      this.etudiant.email = params['email'];
 
 
 
@@ -60,7 +60,7 @@ tableSizes: any = [5, 10, 15, 20];
         // Handle success, update UI, or show a success message to the user
       },
       (error) => {
-        console.error('Error modifier foyer :', error);
+        console.error('Error modifier etudiant :', error);
         // Handle error, show an error message to the user
       }
     );
@@ -74,7 +74,7 @@ tableSizes: any = [5, 10, 15, 20];
       });
     
       // En-tête du tableau
-      const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','Email'];
+      const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','email'];
     
       // Données des étudiants
       const data = [[

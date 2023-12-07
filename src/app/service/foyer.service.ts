@@ -31,6 +31,10 @@ export class FoyerService {
       `${this.baseUrl}/findAllFoyersWithUniversiteAndBlocs`
     );
   }
+  getBlocssByFoyerId(idFoyer: number): Observable<Bloc[]> {
+    const url = `${this.baseUrl}/${idFoyer}/blocs`; // Update the URL to include the idBloc path variable
+    return this.httpClient.get<Bloc[]>(url);
+  }
 
   addFoyer(foyer: Foyer): Observable<Foyer> {
     return this.httpClient.post<Foyer>(`${this.baseUrl}/add`, foyer);
@@ -147,5 +151,10 @@ export class FoyerService {
   getFoyerStatistics(): Observable<any> {
     return this.httpClient.get<any>(`${this.baseUrl}/statistics`);
   }
+  getFoyerByUniversiteId(universiteId: number): Observable<Foyer> {
+    const url = `${this.baseUrl}/universite/${universiteId}`;
+    return this.httpClient.get<Foyer>(url);
+  }
+
   private foyers: Foyer[] = [];
 }

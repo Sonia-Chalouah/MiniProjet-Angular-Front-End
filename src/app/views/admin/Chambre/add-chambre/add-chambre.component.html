@@ -4,8 +4,30 @@
   <form #chambreForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="numeroChambre">Numero Chambre:</label>
-      <input type="text" class="form-control" id="numeroChambre" name="numeroChambre" [(ngModel)]="chambre.numeroChambre" required style="font-size: 20px;">
+      <input type="text" class="form-control" id="numeroChambre" name="numeroChambre" [(ngModel)]="chambre.numeroChambre" required style="font-size: 20px;" #numeroChambre="ngModel">
+      <div *ngIf="numeroChambre.invalid && numeroChambre.errors">
+        <div *ngIf="numeroChambre.errors['required']" class="text-danger">
+          numero chambre obligatoire.
+        </div>
+      </div>
     </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="form-group">
       <label for="typeC">Type:</label>
       <select id="typeC" class="form-control" name="typeC" [(ngModel)]="chambre.typeC" required style="font-size: 20px;">

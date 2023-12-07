@@ -10,17 +10,28 @@
     <div class="form-group">
       <label for="numeroChambre">Numero Chambre:</label>
       <input id="numeroChambre" formControlName="numeroChambre" class="form-control" />
+      <div *ngIf="updateForm.get('numeroChambre').hasError('required') && updateForm.get('numeroChambre').touched" style="color: red;">
+        Numero du chambre est requis.
+      </div>
+      <div *ngIf="updateForm.get('numeroChambre').hasError('maxlength') && updateForm.get('numeroChambre').touched"style="color: red;">
+        Numero doit avoir au maximum 3 chiffres.
+      </div>
     </div>
 
     <div class="form-group">
       <label for="typeC">Type Chambre:</label>
       <input id="typeC" formControlName="typeC" class="form-control" />
+      <div *ngIf="updateForm.get('typeC').hasError('required') && updateForm.get('typeC').touched" style="color: red;">
+        Chambre  is required.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" formGroupName="bloc">
       <label for="idBloc">ID Bloc:</label>
       <input id="idBloc" formControlName="bloc.idBloc" class="form-control" />
+     
     </div>
+    
 
     <!-- Add other form controls as needed -->
 

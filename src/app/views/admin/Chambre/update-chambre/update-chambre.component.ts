@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Chambre } from 'src/app/Model/chambre';
+import { Chambre } from 'src/app/Model/Chambre';
 import { ChambreService } from 'src/app/service/chambre.service';
 import { CommonModule } from '@angular/common';
-
+import { Bloc } from 'src/app/Model/Bloc';
 
 @Component({
   selector: 'app-update-chambre',
@@ -15,6 +15,8 @@ export class UpdateChambreComponent implements OnInit {
 
   updateForm: FormGroup;
   chambre: Chambre = new Chambre;
+  blocs: Bloc[];  // Define blocs array
+
 
   constructor(
     private chambreServ: ChambreService,
@@ -25,7 +27,6 @@ export class UpdateChambreComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Get chambreId from route parameters
     const chambreId = this.route.snapshot.paramMap.get('id');
 
     if (chambreId) {
@@ -33,12 +34,14 @@ export class UpdateChambreComponent implements OnInit {
         this.chambre = existingChambre;
   
         this.updateForm = this.fb.group({
-          idChambre: [this.chambre.idChambre, Validators.required],
-          numeroChambre: [this.chambre.numeroChambre, Validators.required],
+          idChambre: [this.chambre.idChambre, [Validators.required ]],
+          numeroChambre: [this.chambre.numeroChambre, [Validators.required, Validators.maxLength(3)]],
           typeC: [this.chambre.typeC, Validators.required],
           bloc: this.fb.group({
             idBloc: [this.chambre.bloc.idBloc, Validators.required],
           }),
+
+          
           // Add other form controls as needed
         });
       });

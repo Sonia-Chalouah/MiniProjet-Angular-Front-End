@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit,Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Chambre } from 'src/app/Model/chambre';
+import { Chambre } from 'src/app/Model/Chambre';
 import { Reservation } from 'src/app/Model/Reservation';
 import { ChambreService } from 'src/app/service/chambre.service';
 import {  LinearScale, CategoryScale } from 'chart.js';
 import { CommonModule } from '@angular/common';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable'; // Import autotable
+import Swal from 'sweetalert2';
 
 
 
@@ -21,6 +22,9 @@ declare var Chart: any;
   styleUrls: ['./get-chambre.component.css']
 })
 export class GetChambreComponent implements OnInit {
+  @Input() chambresInput: Chambre[] = [];
+  @Output() chambresOutput: EventEmitter<Chambre[]> = new EventEmitter<Chambre[]>();
+
   chambres!: Chambre[];
   reservations!: Reservation[];
   selectedChambre: Chambre;
@@ -73,7 +77,7 @@ export class GetChambreComponent implements OnInit {
       this.chambres = data;
     });
   }
-
+ /*
   deleteChambre(chambre: Chambre): void {
     this.chambreService.deleteChambre(chambre).subscribe(
       () => {
@@ -85,6 +89,49 @@ export class GetChambreComponent implements OnInit {
       }
     );
   }
+*/
+
+  deleteChambre(idChambre: number): void {
+    Swal.fire({
+      title: 'Confirmation',
+      text: 'Are you sure you want to delete the foyer?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.chambreService.deleteChambreByid(idChambre).subscribe(
+          () => {
+            console.log('Chambre deleted successfully.');
+            this.chambres = this.chambres.filter(chambre => chambre.idChambre !== idChambre);
+          },
+          error => {
+            console.error('Failed to delete chambre:', error);
+            // Handle the error and display an appropriate error message to the user
+          }
+        );
+      } else {
+        // Cancelled deletion
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   getReservations(chambreId: number): void {
     const chambre = this.chambres.find(c => c.idChambre === chambreId);

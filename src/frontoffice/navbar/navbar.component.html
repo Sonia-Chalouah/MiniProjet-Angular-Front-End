@@ -16,19 +16,20 @@
       <nav class="main_nav_container">
         <div class="main_nav">
           <ul class="main_nav_list">
-            <li class="main_nav_item"><a href="#">home</a></li>
-            <li class="main_nav_item"><a href="#">about us</a></li>
-            <li class="main_nav_item"><a href="courses.html">université</a></li>
-            <li class="main_nav_item"><a href="elements.html">Foyer</a></li>
-            <li class="main_nav_item"><a href="news.html">Reservation</a></li>
-            <li class="main_nav_item"><a routerLink="/contact">contact</a></li>
+            <li class="main_nav_item"><a routerLink="">home</a></li>
+            <li class="main_nav_item"><a routerLink="#">about us</a></li>
+          
+            <li class="main_nav_item"><a routerLink="/getfoyer">Universite</a></li>
+            <li class="main_nav_item"><a routerLink="/getblocs">Blocs</a></li>
+            <li class="main_nav_item"><a routerLink="/contact">Chambre</a></li>
           </ul>
         </div>
       </nav>
     </div>
-    <div class="header_side d-flex flex-row justify-content-center align-items-center ">
-
-      <span>Sign Up</span>
+      <div class="header_side d-flex flex-row justify-content-center align-items-center">
+      <a class="nav-link" routerLink="/login">
+        <span class="text-center">Déconnecter</span>
+      </a>
     </div>
 
     <!-- Hamburger -->
@@ -52,8 +53,8 @@
         <ul class="menu_list menu_mm">
           <li class="menu_item menu_mm"><a routerLink="#">Home</a></li>
           <li class="menu_item menu_mm"><a routerLink="#">About us</a></li>
-          <li class="menu_item menu_mm"><a routerLink="courses.html">Courses</a></li>
-          <li class="menu_item menu_mm"><a routerLink="elements.html">Elements</a></li>
+          <li class="menu_item menu_mm"><a routerLink="/getfoyer">g</a></li>
+          <li class="menu_item menu_mm"><a routerLink="/getfoyer">Foyer</a></li>
           <li class="menu_item menu_mm"><a routerLink="news.html">News</a></li>
           <li class="menu_item menu_mm"><a routerLink="/contact">Contact</a></li>
         </ul>

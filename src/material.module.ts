@@ -15,6 +15,9 @@ import { FooterComponent } from './frontoffice/footer/footer.component';
 import { NavbarComponent } from './frontoffice/navbar/navbar.component';
 import { AboutUsComponent } from './frontoffice/about-us/about-us.component';
 import { ContactComponent } from './frontoffice/contact/contact.component';
+import { GetFoyersComponent } from './frontoffice/oussema/get-foyers.component';
+import { RouaFrontComponent } from './frontoffice/roua-front/roua-front.component';
+import { FoyersComponent } from './frontoffice/foyers/foyers.component';
 
 @NgModule({
     exports: [
@@ -35,6 +38,14 @@ import { ContactComponent } from './frontoffice/contact/contact.component';
 
 
 
+  
+
+  
+    
+  
+    RouaFrontComponent,
+                                  FoyersComponent
+                                
   ]
 })
 export class MaterialModule { }
