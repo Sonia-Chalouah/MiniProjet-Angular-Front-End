@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <div class="card shadow">
+      <div class="card-header bg-success text-white">
+        <h1 class="card-title mb-0">Détails de l'étudiant</h1>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label for="updatenomEt" class="form-label">Nom étudiant</label>
+            <input type="text" class="form-control" id="updatenomEt" name="updatenomEt" [(ngModel)]="etudiant.nomEt" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="updateprenomEt" class="form-label">Prénom étudiant</label>
+            <input type="text" class="form-control" id="updateprenomEt" name="updateprenomEt" [(ngModel)]="etudiant.prenomEt" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="updatecin" class="form-label">CIN étudiant</label>
+            <input type="text" class="form-control" id="updatecin" name="updatecin" [(ngModel)]="etudiant.cin" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="updateecole" class="form-label">École</label>
+            <input type="text" class="form-control" id="updateecole" name="updateecole" [(ngModel)]="etudiant.ecole" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="updateemail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="updateemail" name="updateemail" [(ngModel)]="etudiant.email" readonly>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <button class="col-2 btn btn-success" (click)="onDownloadPdf()">Download PDF</button>
+  </div>
+  

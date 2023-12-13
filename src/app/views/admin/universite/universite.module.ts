@@ -8,6 +8,8 @@ import { UniversiteComponent } from './universite/universite.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AjouterUniversiteComponent } from './ajouter-universite/ajouter-universite.component';
 import { ModifierUniversiteComponent } from './modifier-universite/modifier-universite.component';
+import { OussemaDetailsComponent } from './oussema-details/oussema-details.component';
+import { UniversiteDetailsComponent } from './universite-details/universite-details.component';
 
 
 
@@ -15,7 +17,9 @@ import { ModifierUniversiteComponent } from './modifier-universite/modifier-univ
   declarations: [
     UniversiteComponent,
     AjouterUniversiteComponent,
-    ModifierUniversiteComponent
+    ModifierUniversiteComponent,
+    OussemaDetailsComponent,
+    UniversiteDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -5,7 +5,6 @@ import { AddBlocComponent } from './add-bloc/add-bloc.component';
 import { UpdateBlocComponent } from './update-bloc/update-bloc.component';
 import { DetailsBlocComponent } from './details-bloc/details-bloc.component';
 import { GetBlocsComponent } from 'src/frontoffice/get-blocs/get-blocs.component';
-import { DetailComponent } from '../etudiant/detail/detail.component';
 
 const routes: Routes = [
 {path: "blocs", component:ListBlocComponent},
@@ -13,7 +12,7 @@ const routes: Routes = [
 {path: "getblocs", component: GetBlocsComponent} , 
 
 {path: "UpdateBloc/:id",component: UpdateBlocComponent} , 
-{path: "details-bloc/:id", component: DetailsBlocComponent}];
+{path: "details-bloc", component: DetailsBlocComponent}];
 
 
 @NgModule({

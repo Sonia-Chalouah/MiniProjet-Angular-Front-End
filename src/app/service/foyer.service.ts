@@ -9,6 +9,9 @@ import { Bloc } from '../Model/Bloc';
   providedIn: 'root',
 })
 export class FoyerService {
+  getFoyerList() {
+    throw new Error('Method not implemented.');
+  }
   private baseUrl = 'http://localhost:8081/foyer';
   private universiteBaseUrl = 'http://localhost:8081/universite';
   private blocBaseUrl = 'http://localhost:8081/bloc';

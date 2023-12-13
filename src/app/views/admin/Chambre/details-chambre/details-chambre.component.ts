@@ -4,9 +4,7 @@ import { ChambreService } from 'src/app/service/chambre.service';
 import { ChambreTypeStatistics } from 'src/app/Model/chambre-type-statistics';
 import { Chart, LinearScale, CategoryScale } from 'chart.js';
 
-
 import 'chart.js/auto';
-
 
 @Component({
   selector: 'app-details-chambre',
@@ -17,7 +15,6 @@ export class DetailsChambreComponent implements OnInit {
   title = 'chartDemo';
   chambreTypeStatistics: ChambreTypeStatistics[] = [];
   mostCommonTypeImage: string = ''; // Image URL for the most common type
-
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +30,6 @@ export class DetailsChambreComponent implements OnInit {
       this.chambreTypeStatistics = data;
       this.createChart();
       this.determineMostCommonTypeImage();
-
     });
   }
 
@@ -89,7 +85,6 @@ export class DetailsChambreComponent implements OnInit {
     return color;
   }
 
-  
   private determineMostCommonType(chambreTypeStatistics: ChambreTypeStatistics[]): string {
     const sortedStatistics = chambreTypeStatistics.sort((a, b) => b.count - a.count);
     const mostCommonType = sortedStatistics[0];
@@ -115,5 +110,9 @@ export class DetailsChambreComponent implements OnInit {
         this.mostCommonTypeImage = 'default_image_url';
         break;
     }
+  }
+  onMostCommonTypeSelected(type: string): void {
+    console.log(`Most common type selected: ${type}`);
+    // You can handle the selected type as needed
   }
 }

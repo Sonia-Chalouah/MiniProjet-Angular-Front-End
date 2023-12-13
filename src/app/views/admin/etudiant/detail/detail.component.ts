@@ -1,10 +1,8 @@
-import { Router, ActivatedRoute } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+// detail.component.ts
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { etudiantService } from './../../../../service/etudiant.service';
 import { Etudiant } from './../../../../Model/Etudiant';
-import { Inject, Input} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog"
-import {FormsModule} from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
 import { jsPDF } from "jspdf";
 
 @Component({
@@ -12,24 +10,16 @@ import { jsPDF } from "jspdf";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class DetailComponent  implements OnInit {
-
+export class DetailComponent implements OnInit {
   etudiant: Etudiant = { 
-    idEtudiant:0,
-    nomEt:'',
-    prenomEt:'',
-    cin:0,
-    ecole:'',
-    dateNaissance:null,
-    email:''
-   };
-
-   POSTS: any;
-page: number = 1;
-count: number = 0;
-tableSize: number = 10;
-tableSizes: any = [5, 10, 15, 20];
-
+    idEtudiant: 0,
+    nomEt: '',
+    prenomEt: '',
+    cin: 0,
+    ecole: '',
+    dateNaissance: null,
+    email: ''
+  };
 
   constructor(private route: ActivatedRoute, private etudiantService: etudiantService, private router: Router) {}
 
@@ -42,58 +32,45 @@ tableSizes: any = [5, 10, 15, 20];
       this.etudiant.ecole = params['ecole'];
       this.etudiant.dateNaissance = params['dateNaissance'];
       this.etudiant.email = params['email'];
-
-
-
     });
-     
-}
+  }
 
   ModifierFoyer() {
-    console.log(this.etudiant)
     this.etudiantService.ModifierFoyer(this.etudiant).subscribe(
       (res: Etudiant) => {
         localStorage.clear();
         this.router.navigate(['admin/etudiant']);
-        console.log('etudiant Modifier Avec succées:', res);
-        
-        // Handle success, update UI, or show a success message to the user
+        console.log('Student Modified Successfully:', res);
       },
       (error) => {
-        console.error('Error modifier etudiant :', error);
-        // Handle error, show an error message to the user
+        console.error('Error modifying student:', error);
       }
     );
-    }
-  
-    printSimplePdf() {
-      const doc = new jsPDF({
-        orientation: 'landscape',
-        unit: 'in',
-        format: [4, 8]
-      });
-    
-      // En-tête du tableau
-      const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date','email'];
-    
-      // Données des étudiants
-      const data = [[
-        this.etudiant.nomEt,
-        this.etudiant.prenomEt,
-        this.etudiant.cin,
-        this.etudiant.ecole,
-        this.etudiant.dateNaissance,
-        this.etudiant.email
-        
-      ]];
-    
-      (doc as any).autoTable({
-        head: [headers],
-        body: data
-      });
-    
-      doc.save('etudiants.pdf');
-    }
   }
 
+  printSimplePdf() {
+    const doc = new jsPDF({
+      orientation: 'landscape',
+      unit: 'in',
+      format: [4, 8]
+    });
 
+    const headers = ['Nom', 'Prénom', 'CIN', 'Ecole', 'Date', 'Email'];
+
+    const data = [[
+      this.etudiant.nomEt,
+      this.etudiant.prenomEt,
+      this.etudiant.cin,
+      this.etudiant.ecole,
+      this.etudiant.dateNaissance,
+      this.etudiant.email
+    ]];
+
+    (doc as any).autoTable({
+      head: [headers],
+      body: data
+    });
+
+    doc.save('students.pdf');
+  }
+}

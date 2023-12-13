@@ -1,0 +1,5 @@
+<!-- oussema-details.component.html -->
+
+<div *ngFor="let universite of universites">
+    <app-universite-details [universite]="universite" (deleteUniversite)="onDeleteUniversite($event)"></app-universite-details>
+</div>

@@ -1,0 +1,26 @@
+
+<div class="card">
+    <div class="card-body">
+      <h4 class="header-title mb-3">Les Details Des Bloc </h4>
+
+      <div class="inbox-widget">
+
+        <div class="inbox-item">
+
+          <div class="inbox-item-img"><img
+              src="/app/assets/images/users/bloc.jpeg"
+              class="rounded-circle" alt></div>
+          <h5 class="inbox-item-author mt-0 mb-1">
+
+            {{bloc.nomBloc}}
+
+          </h5>
+          Capacite du bloc : {{bloc.capaciteBloc}}
+          <p class="inbox-item-text">Hey! there I'm the best University...</p>
+
+          <button (click)="deleteBloc(bloc.idBloc)"
+            class="btn btn-danger btn-sm">Effacer</button>
+        </div>
+      </div>
+    </div>
+  </div>

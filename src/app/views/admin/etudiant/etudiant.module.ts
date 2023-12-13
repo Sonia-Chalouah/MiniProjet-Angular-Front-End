@@ -12,6 +12,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailComponent } from './detail/detail.component';
+import { SoniaDetailsComponent } from './sonia-details/sonia-details.component';
 
 
 
@@ -22,7 +23,10 @@ import { DetailComponent } from './detail/detail.component';
     EtudiantComponent,
     AjouterEtudiantComponent,
     UpdateEtudiantComponent,
-    DetailComponent
+    DetailComponent,
+    SoniaDetailsComponent
+    
+    
   ],
   imports: [
     CommonModule,

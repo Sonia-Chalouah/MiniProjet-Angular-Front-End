@@ -148,9 +148,10 @@ tableSizes: any = [3, 9, 12, 15];
       }
     );
   }
-  detailsBloc(id: number): void {
-    this.router.navigate(['/admin/bloc/details-bloc', id]);
+  detailBloc() {
+    this.router.navigate([`/admin/bloc/details-bloc`]);
   }
+ 
   updateBloc(id: number): void {
     // Navigate to the update component with the selected Chambre ID
     this.router.navigate(['/admin/bloc/UpdateBloc', id]);

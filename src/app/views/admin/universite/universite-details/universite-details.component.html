@@ -1,0 +1,11 @@
+<!-- universite-details.component.html -->
+
+<div class="universite-container mt-5">
+    <h2 class="universite-header">-----------------------------------------</h2>
+    <ul class="universite-details">
+        <li><strong>Nom:</strong> {{ universite.nomUniversite }}</li>
+        <li><strong>Adresse:</strong> {{ universite.adresse }}</li>
+        <!-- Add more details as needed -->
+    </ul>
+    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+</div>

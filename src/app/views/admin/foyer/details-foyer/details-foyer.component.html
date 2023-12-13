@@ -1,31 +1,3 @@
-<div class="card-container container-lg">
-  <div class="card">
-    <div class="card-header">
-      <h2>Details of Foyer {{ foyer?.idFoyer }}</h2>
-    </div>
-    <div class="card-body">
-      <p><strong>Name:</strong> {{ foyer.nomFoyer }}</p>
-      <p><strong>Capacité:</strong> {{ foyer?.capaciteFoyer }}</p>
-      <p><strong>Université:</strong> {{ foyer?.universiteName }}</p>
-      <!-- Add more details as needed -->
-    </div>
-    <div class="card-footer">
-      <h3>List of Blocs:</h3>
-      <ul>
-        <li *ngFor="let bloc of blocs">
-          <div class="card mb-3">
-            <div class="card-body">
-              <p><strong>Nom Bloc:</strong> {{ bloc?.idBloc }}</p>
-              <p><strong>Nom Bloc:</strong> {{ bloc.nomBloc }}</p>
-              <p><strong>Capacité Bloc:</strong> {{ bloc.capaciteBloc }}</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<!-- details-foyer.component.html -->
 
-<div *ngIf="!foyer" class="loading">
-  <p>Loading...</p>
-</div>
+<app-foyer-detailsss [foyer]="foyer" [blocs]="blocs" (blocsLoaded)="handleBlocsLoaded($event)"></app-foyer-detailsss>

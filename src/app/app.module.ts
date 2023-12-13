@@ -22,6 +22,13 @@ import { NavbarComponent } from 'src/frontoffice/navbar/navbar.component';
 import { FooterComponent } from 'src/frontoffice/footer/footer.component';
 
 import { UserModule } from './views/front/user/user.module';
+import { MyChartComponent } from './views/admin/Chambre/my-chart/my-chart.component';
+import { FoyerDetailsssComponent } from './views/admin/foyer/foyer-detailsss/foyer-detailsss.component';
+import { ReservationsDetailsComponent } from './views/admin/reservation/reservations-details/reservations-details.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { SoniaDetailsComponent } from './views/admin/etudiant/sonia-details/sonia-details.component';
+import { OussemaDetailsComponent } from './views/admin/universite/oussema-details/oussema-details.component';
+import { UniversiteDetailsComponent } from './views/admin/universite/universite-details/universite-details.component';
 
 
 
@@ -37,7 +44,15 @@ import { UserModule } from './views/front/user/user.module';
     
 BodyComponent,
 NavbarComponent,
-FooterComponent
+FooterComponent,
+
+
+
+
+
+
+
+
 
 
 

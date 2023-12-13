@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GetBlocsComponent } from 'src/frontoffice/get-blocs/get-blocs.component';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -21,6 +22,8 @@ import { GetBlocsComponent } from 'src/frontoffice/get-blocs/get-blocs.component
     ListBlocComponent,
     DetailsBlocComponent,
     GetBlocsComponent,
+    DetailsComponent,
+    
 
   ],
   imports: [

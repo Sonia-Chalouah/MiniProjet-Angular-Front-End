@@ -85,31 +85,24 @@ export class ReservationComponent {
   generatePDF(): void {
     const title = 'Liste des Réservations';
     const content = this.pdfContent.nativeElement;
-
-
+  
+    console.log(content); // Add this line to check if content is defined
+  
     html2canvas(content).then(canvas => {
       const imageData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
       pdf.text(title, 10, 10);
       pdf.addImage(imageData, 'PNG', 10, 20, 180, 0);
-     // Add horizontal line
-     pdf.setLineWidth(0.5);
-     pdf.line(10, pdf.internal.pageSize.height - 20, 200, pdf.internal.pageSize.height - 20);
-
-
-     // Add contact information
-     const contactText = ' BY Campus Living Spaces ';
-     pdf.setFontSize(15);
-     pdf.text(contactText, 10, pdf.internal.pageSize.height - 15);
-
-
-
-
-
-
+      // Add horizontal line
+      pdf.setLineWidth(0.5);
+      pdf.line(10, pdf.internal.pageSize.height - 20, 200, pdf.internal.pageSize.height - 20);
+  
+      // Add contact information
+      const contactText = ' BY Campus Living Spaces ';
+      pdf.setFontSize(15);
+      pdf.text(contactText, 10, pdf.internal.pageSize.height - 15);
+  
       pdf.save('reservations.pdf');
-
-
     });
   }
 
@@ -117,6 +110,3 @@ export class ReservationComponent {
 
 
 }
-
-
-

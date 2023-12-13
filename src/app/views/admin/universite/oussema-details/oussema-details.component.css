@@ -1,0 +1,26 @@
+/* oussema-details.component.css */
+
+/* Style for the container */
+div.universite-container {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* Style for the university details */
+  ul.universite-details {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul.universite-details li {
+    margin-bottom: 5px;
+  }
+  
+  /* Style for the header */
+  h2.universite-header {
+    background-color: #f0f0f0;
+    padding: 8px;
+    margin: 0;
+  }
+  

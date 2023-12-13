@@ -9,6 +9,7 @@ import { DetailsChambreComponent } from './details-chambre/details-chambre.compo
 import { UpdateChambreComponent } from './update-chambre/update-chambre.component';
 import { ContactComponent } from 'src/frontoffice/contact/contact.component';
 import { NavbarComponent } from 'src/frontoffice/navbar/navbar.component';
+import { MyChartComponent } from './my-chart/my-chart.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NavbarComponent } from 'src/frontoffice/navbar/navbar.component';
     GetChambreComponent,
     DetailsChambreComponent,
     UpdateChambreComponent,
-    ContactComponent
+    ContactComponent,
+    MyChartComponent
 
 
 
