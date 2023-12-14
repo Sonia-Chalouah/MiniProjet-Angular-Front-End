@@ -1,0 +1,33 @@
+<div>
+    <h2>Update Commande</h2>
+    <form (ngSubmit)="updateReservation()">
+      <div>
+        <label for="ReservationId">ReservationId:</label>
+        <input type="text" id="ReservationId" name="ReservationId" [(ngModel)]="ReservationId" required>
+      </div>
+      <div>
+        <label for="reservationName">ReservationName:</label>
+        <input type="text" id="reservationName" name="reservationName" [(ngModel)]="reservationName" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea type="text" id="description" name="description" [(ngModel)]="description" required></textarea>
+      </div>
+  
+      <div>
+        <label for="startDate">StartDate:</label>
+        <input type="date" id="startDate" name="startDate" [(ngModel)]="startDate" required>
+      </div>
+      <div>
+        <label for="endDate">EndDate:</label>
+        <input type="date" id="endDate" name="endDate" [(ngModel)]="endDate" required>
+      </div>
+      <div>
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" [(ngModel)]="status" required>
+      </div>
+      <div>
+        <button type="submit">Update Reservation</button>
+      </div>
+    </form>
+  </div>

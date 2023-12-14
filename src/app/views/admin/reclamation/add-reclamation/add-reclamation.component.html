@@ -1,0 +1,20 @@
+<div>
+    <h2>Add Reclamation</h2>
+    <form (ngSubmit)="addReclamation()">
+      <div>
+        <label for="sujet">Sujet:</label>
+        <input type="text" id="sujet" name="sujet" [(ngModel)]="reclamation.sujet" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea  type="text" id="description" name="description" [(ngModel)]="reclamation.description" required></textarea>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" [(ngModel)]="reclamation.email" required>
+      </div>
+    
+        <button type="submit">Add your reclamation</button>
+   
+    </form>
+  </div>

@@ -1,0 +1,75 @@
+
+<header class="header d-flex flex-row">
+  <div class="header_content d-flex flex-row align-items-center">
+    <!-- Logo -->
+    <div class="logo_container">
+      <div class="logo">
+        <img src="assets/template/images/logo.png" alt="">
+        <span>Terrain</span>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main_nav_container">
+      <div class="main_nav">
+        <ul class="main_nav_list">
+
+          <li class="main_nav_item"><a href="http://localhost:4200/terrains">Terrain</a></li>
+
+          <li class="main_nav_item"><a href="http://localhost:4200/events">Event</a></li>
+          <li class="main_nav_item"><a href="http://localhost:4200/reservations">Reservation</a></li>
+          <li class="main_nav_item"><a href="http://localhost:4200/prouits">Produit</a></li>
+          <li class="main_nav_item"><a href="http://localhost:4200/commandes">Commande</a></li>
+          <li class="main_nav_item"><a href="http://localhost:4200/reclamations">Reclamation</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    <div class="header_side d-flex flex-row justify-content-center align-items-center">
+    <a class="nav-link" routerLink="/login">
+      <span class="text-center">Déconnecter</span>
+    </a>
+  </div>
+
+  <!-- Hamburger -->
+  <div class="hamburger_container">
+    <i class="fas fa-bars trans_200"></i>
+  </div>
+
+</header>
+
+
+
+<div class="row mt-12 flex-row ml-5 align-items-center">
+  <!-- Iterate over reclamation items -->
+  <ng-container *ngFor="let event of events">
+    <div class="col-lg-3 course_box">
+      <div class="card">
+        <!-- Card content -->
+        <div class="card-body text-center " >
+
+        <p><strong>Description: </strong> {{ event.description }}</p>
+        <p><strong>Start Date:</strong> {{ event.startDate  }}</p>
+        <p><strong>End Date: </strong>{{ event.endDate  }}</p>
+        <p><strong>Location:</strong>  {{ event.location }}</p>
+
+
+        </div>
+        <div class="price_box d-flex flex-row align-items-center">
+          <div class="course_author_image">
+            <!-- Replace the author image source with your reclamation-specific details -->
+
+          </div>
+          <div class="course_author_name text-center">Nom Event: {{ event.eventName }}</div>
+          <div class="course_price d-flex flex-column align-items-center justify-content-center">
+
+          </div>
+        </div>
+        <!-- End of card content -->
+      </div>
+    </div>
+  </ng-container>
+</div>
+<!--*****************************************-->
+
+

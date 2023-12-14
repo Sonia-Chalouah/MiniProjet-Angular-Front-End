@@ -1,0 +1,36 @@
+<div>
+    <h2>Update Commande</h2>
+    <form (ngSubmit)="updateCommande()">
+      <div>
+        <label for="commandeId">commandeId:</label>
+        <input type="text" id="commandeId" name="commandeId" [(ngModel)]="commandeId" required>
+      </div>
+      <div>
+        <label for="nomClient">nomClient:</label>
+        <input type="text" id="nomClient" name="nomClient" [(ngModel)]="nomClient" required>
+      </div>
+      <div>
+        <label for="telephone">telephone:</label>
+        <textarea type="text" id="telephone" name="telephone" [(ngModel)]="telephone" required></textarea>
+      </div>
+      <div>
+        <label for="adresse">adresse:</label>
+        <input type="text" id="adresse" name="adresse" [(ngModel)]="adresse" required>
+      </div>
+      <div>
+        <label for="dateCommande">dateCommande:</label>
+        <input type="date" id="dateCommande" name="dateCommande" [(ngModel)]="dateCommande" required>
+      </div>
+      <div>
+        <label for="dateLivraison">dateLivraison:</label>
+        <input type="date" id="dateLivraison" name="dateLivraison" [(ngModel)]="dateLivraison" required>
+      </div>
+      <div>
+        <label for="prixTotal">prixTotal:</label>
+        <input type="number" id="prixTotal" name="prixTotal" [(ngModel)]="prixTotal" required>
+      </div>
+      <div>
+        <button type="submit">Update Commande</button>
+      </div>
+    </form>
+  </div>

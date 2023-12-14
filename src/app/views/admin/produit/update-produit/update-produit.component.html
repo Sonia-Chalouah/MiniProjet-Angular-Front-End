@@ -1,0 +1,32 @@
+<div>
+    <h2>Update Produit</h2>
+    <form (ngSubmit)="updateProduit()">
+      <div>
+        <label for="produitId">Produit ID:</label>
+        <input type="text" id="produitId" name="produitId" [(ngModel)]="produitId" required>
+      </div>
+      <div>
+        <label for="name">Produit Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="name" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea  type="text" id="description" name="description" [(ngModel)]="description" required></textarea>
+      </div>
+      <div>
+        <label for="quantite">quantite:</label>
+        <input type="text" id="quantite" name="quantite" [(ngModel)]="quantite" required>
+      </div>
+      <div>
+        <label for="prix">prix:</label>
+        <input type="number" id="prix" name="prix" [(ngModel)]="prix" required>
+      </div>
+      <div>
+        <label for="categorie">categorie:</label>
+        <input type="text" id="categorie" name="categorie" [(ngModel)]="categorie" required>
+      </div>
+      <div>
+        <button type="submit">Update Produit</button>
+      </div>
+    </form>
+  </div>

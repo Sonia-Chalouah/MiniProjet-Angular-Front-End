@@ -1,0 +1,28 @@
+<div>
+    <h2>Add Produit</h2>
+    <form (ngSubmit)="addProduit()">
+      <div>
+        <label for="produitName">Produit Name:</label>
+        <input type="text" id="produitName" name="produitName" [(ngModel)]="produit.name" required>
+      </div>
+      <div>
+        <label for="categorie">categorie:</label>
+        <textarea type="text" id="categorie" name="categorie" [(ngModel)]="produit.categorie" required></textarea>
+      </div>
+      <div>
+        <label for="description">description:</label>
+        <input type="text" id="description" name="description" [(ngModel)]="produit.description" required>
+      </div>
+      <div>
+        <label for="quantite">End Date:</label>
+        <input type="text" id="quantite" name="quantite" [(ngModel)]="produit.quantite" required>
+      </div>
+      <div>
+        <label for="prix">prix:</label>
+        <input type="number" id="prix" name="prix" [(ngModel)]="produit.prix" required>
+      </div>
+      <div>
+        <button type="submit">Add Produit</button>
+      </div>
+    </form>
+  </div>
